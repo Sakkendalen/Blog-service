@@ -19,24 +19,32 @@ The content
 
 <script type="text/babel">
 
-function httpRF(httpResponse) {
-      console.log(httpResponse)
+class Juttu extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
+  componentDidMount() {
+    var url = "http://localhost:8080/text";
+    fetch(url).then(httpResponse => httpResponse.json()).then(this.puljaaVariables.bind(this));
+  }
+
+  puljaaVariables(object) {
+        console.log(object);
+        this.setState({"date": object.date});
+        this.setState({"author": object.author});
+        this.setState({"title": object.title});
+         this.setState({"content": object.content});
+   }
+
+  render() {
+    return <p>BMI :{this.state.date} <br></br>  {this.state.author} <br/> {this.state.title} <br/> {this.state.content}</p>
+    }
 }
 
-// function component
-let tmp = fetch("http://localhost:8080/text").then(text => console.log(text));
-
-
-function Link(properties) {
-  return <a href={properties.link}>{properties.text}</a>;
-}
-
-ReactDOM.render(
-  <Link link="http://www.uta.fi" text="utatemplates"/>,
-  document.getElementById('root')
-);
-
-//
+ReactDOM.render(<Juttu/>,document.getElementById('root'));
 
 </script>
 

@@ -66,4 +66,10 @@ public class PostController {
 
         }
     }
+
+    @RequestMapping(value="/text")
+    @ResponseBody
+    public Post text() {
+        return new Post(LocalDateTime.of(2019,2,1,6,30),"author","title","juttu");
+    }
 }
