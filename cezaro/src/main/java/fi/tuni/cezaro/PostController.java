@@ -10,6 +10,7 @@ import java.time.ZonedDateTime;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api")
 public class PostController {
 
     @Autowired
@@ -18,16 +19,16 @@ public class PostController {
     //Testing database
     @PostConstruct
     public void loadData() {
-        postRepo.save(new Post(LocalDateTime.of(2001, 1 , 1, 12, 55), "1","1", "1"));
-        postRepo.save(new Post(LocalDateTime.of(2002, 1 , 1, 12, 55), "2","2", "2"));
-        postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 55), "3","3", "3"));
+        postRepo.save(new Post(LocalDateTime.of(2001, 1 , 1, 12, 55), "Saku","JAVASCRIPT ON BEBAST", "mita pyllyt tekee pusikossa"));
+        postRepo.save(new Post(LocalDateTime.of(2002, 1 , 1, 12, 55), "Mikko","JAVASCRIPT ON THE BEST", "Vakoilee"));
+        postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 55), "Matti","TAH?!", "MIS MOON?!"));
     }
 
     public void createPost(LocalDateTime time, String author, String title, String content){
         postRepo.save(new Post(time, author, title, content));
     }
 
-    @RequestMapping(value = "/post", method= RequestMethod.GET)
+    @GetMapping(value = "/posts")
     public Iterable<Post> findAll() {
 
         return postRepo.findAll();
@@ -35,7 +36,7 @@ public class PostController {
     }
 
     //used to get post
-    // example fetch with url http://localhost:8080/post/2001-01-01T12:55:00
+    // example fetch with url http://localhost:8080/api/post/2001-01-01T12:55:00
     @RequestMapping(value = "/post/{date}", method= RequestMethod.GET)
     public Optional<Post> getPost(
             @PathVariable(value="date")
