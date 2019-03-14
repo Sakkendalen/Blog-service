@@ -42,4 +42,9 @@ public class BlogController {
             return null;
         }
     }
+
+    @RequestMapping("/")
+    public String home() {
+        return "home";
+    }
 }
