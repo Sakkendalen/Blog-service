@@ -27,7 +27,7 @@ class Juttu extends React.Component {
     }
 
   componentDidMount() {
-    var url = "http://localhost:8080/text";
+    var url = "http://localhost:8080/api/text";
     fetch(url).then(httpResponse => httpResponse.json()).then(this.puljaaVariables.bind(this));
   }
 
