@@ -1,5 +1,10 @@
-# Compiled class file
+# compiled output
+/dist
+/tmp
+/out-tsc
+target/
 *.class
+/build
 
 # Log file
 *.log
