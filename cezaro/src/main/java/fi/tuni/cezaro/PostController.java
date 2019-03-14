@@ -66,9 +66,4 @@ public class PostController {
 
         }
     }
-
-    @RequestMapping("/")
-    public String home() {
-        return "home";
-    }
 }

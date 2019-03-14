@@ -19,15 +19,24 @@ The content
 
 <script type="text/babel">
 
+function httpRF(httpResponse) {
+      console.log(httpResponse)
+}
+
 // function component
+let tmp = fetch("http://localhost:8080/text").then(text => console.log(text));
+
+
 function Link(properties) {
   return <a href={properties.link}>{properties.text}</a>;
 }
 
 ReactDOM.render(
-  <Link link="http://www.uta.fi" text="uta"/>,
+  <Link link="http://www.uta.fi" text="utatemplates"/>,
   document.getElementById('root')
 );
+
+//
 
 </script>
 
