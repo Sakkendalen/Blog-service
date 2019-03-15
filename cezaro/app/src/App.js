@@ -27,6 +27,7 @@ class App extends Component {
               <h2>Post List</h2>
               {posts.map(post =>
                   <div key={post.date}>
+                    <p>MoiMoiMoi</p>
                     <p>Date: {post.date}</p>
                     <p>Author: {post.author}</p>
                     <p>Title: {post.title}</p>
