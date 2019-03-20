@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TopNavigation from './TopNavigation';
 import LeftPanel from './LeftPanel';
+import Post from './Post';
 
 class App extends Component {
   state = {
@@ -28,16 +29,8 @@ class App extends Component {
           <TopNavigation />
           <LeftPanel />
             <div className="App-intro">
-              <h2>Post List</h2>
               {posts.map(post =>
-                  <div key={post.date}>
-                    <p>MoiMoiMoi</p>
-                    <p>Date: {post.date}</p>
-                    <p>Author: {post.author}</p>
-                    <p>Title: {post.title}</p>
-                    <p>Content: {post.content}</p>
-                    <br></br>
-                  </div>
+                  <Post fecthPost={post}/>
               )}
             </div>
           </header>
