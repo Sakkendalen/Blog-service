@@ -1,5 +1,6 @@
 package fi.tuni.cezaro;
 
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -68,9 +69,9 @@ public class PostController {
         }
     }
 
-    @RequestMapping(value="/text")
-    @ResponseBody
-    public Post text() {
-        return new Post(LocalDateTime.of(2019,2,1,6,30),"author","title","juttu");
+    @RequestMapping(value = "/add")
+    public void addPost(String author, String title, String content){
+        postRepo.save(new Post(LocalDateTime.now(), author, title, content));
     }
+
 }
