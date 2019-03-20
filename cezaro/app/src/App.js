@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import TopNavigation from './TopNavigation';
+import LeftPanel from './LeftPanel';
 
 class App extends Component {
   state = {
@@ -23,6 +25,8 @@ class App extends Component {
     return (
         <div className="App">
           <header className="App-header">
+          <TopNavigation />
+          <LeftPanel />
             <div className="App-intro">
               <h2>Post List</h2>
               {posts.map(post =>
