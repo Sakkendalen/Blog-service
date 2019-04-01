@@ -12,34 +12,16 @@ class SearchComponent extends Component {
         return (
             <div className="SearchComponentDiv">
                 <h1> Search Component </h1>
-                <h1> Compose Component </h1>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p><p>sisalto</p>
-                <p>sisalto</p>
-                <h1> Compose Component </h1>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p><p>sisalto</p>
-                <p>sisalto</p>
-                <h1> Compose Component </h1>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p><p>sisalto</p>
-                <p>sisalto</p>
-                <h1> Compose Component </h1>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p><p>sisalto</p>
-                <p>sisalto</p>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
+                <h1> Search Component </h1>
             </div>
         )
     }

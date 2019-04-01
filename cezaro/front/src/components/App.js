@@ -23,7 +23,6 @@ class App extends Component {
   }
 
   topMenuClick(x) {
-    alert(x);
     if (x === "Search") {
         this.setState({page: <SearchComponent/> });
     }

@@ -4,41 +4,77 @@ require('../styles/ComposeComponent.css');
 
 class ComposeComponent extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: 'Please write an essay about your favorite DOM element.',
+            name: "",
+            title: ""
+        };
+
+        this.handleTextChange = this.handleTextChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
     componentDidMount() {
 
+    }
+
+    handleSubmit(event) {
+        alert("nimi : " +this.state.name +" Otsikko : " +this.state.title +" Viesti : " +this.state.text);
+
+
+        fetch('api/add', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                author: 'test1',
+                title: 'test2',
+            })
+        });
+
+        //fetch('api/add', { method: 'post', author: ""+ this.state.name, title: "" +this.state.title + this.state.text});
+
+        event.preventDefault();
+    }
+
+    handleTextChange(event) {
+        this.setState({text: event.target.value});
+    }
+
+    handleNameChange(event) {
+        this.setState({name: event.target.value});
+    }
+
+    handleTitleChange(event) {
+        this.setState({title: event.target.value});
     }
 
     render() {
         return (
             <div className="ComposeComponentDiv">
                 <h1> Compose Component </h1>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p><p>sisalto</p>
-                <p>sisalto</p>
                 <h1> Compose Component </h1>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p><p>sisalto</p>
-                <p>sisalto</p>
                 <h1> Compose Component </h1>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p><p>sisalto</p>
-                <p>sisalto</p>
-                <h1> Compose Component </h1>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p>
-                <p>sisalto</p><p>sisalto</p>
-                <p>sisalto</p>
+                <form onSubmit={this.handleSubmit}>
+
+                    <label>Name</label>
+                    <input type="text" name="name" onChange={this.handleNameChange} />
+
+                    <label>Title</label>
+                    <input type="text" name="title" onChange={this.handleTitleChange} />
+
+                    <label>
+                        Essay:
+                        <textarea value={this.state.text} onChange={this.handleTextChange} />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
 
 
             </div>

@@ -43,7 +43,6 @@ class TopNavigation extends Component {
         <li> <button type="submit" onClick={ () => this.props.onClick( "Publish" ) }>Publish</button> </li>
         <li>Delete</li>
         <li>Modify</li>
-        <li> <button type="submit" onClick={() => { this.setBarState("ComposeComponent") }}>Search</button> </li>
       </ul>
     </div>
     )

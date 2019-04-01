@@ -70,8 +70,9 @@ public class PostController {
     }
 
     @RequestMapping(value = "/add")
-    public void addPost(String author, String title, String content){
-        postRepo.save(new Post(LocalDateTime.now(), author, title, content));
+    public void addPost(@RequestBody String author, @RequestBody String title){
+        System.out.println("xxxx : " +author +"    title : " +title);
+        //postRepo.save(new Post(LocalDateTime.now(), author, title, content));
     }
 
 }
