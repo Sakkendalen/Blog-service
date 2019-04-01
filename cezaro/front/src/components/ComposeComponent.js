@@ -12,6 +12,35 @@ class ComposeComponent extends Component {
         return (
             <div className="ComposeComponentDiv">
                 <h1> Compose Component </h1>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p><p>sisalto</p>
+                <p>sisalto</p>
+                <h1> Compose Component </h1>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p><p>sisalto</p>
+                <p>sisalto</p>
+                <h1> Compose Component </h1>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p><p>sisalto</p>
+                <p>sisalto</p>
+                <h1> Compose Component </h1>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p>
+                <p>sisalto</p><p>sisalto</p>
+                <p>sisalto</p>
+
+
             </div>
         )
     }

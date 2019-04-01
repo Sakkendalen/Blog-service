@@ -2,19 +2,35 @@ import React, { Component } from 'react';
 import TopNavigation from './TopNavigation';
 import LeftPanel from './LeftPanel';
 import Post from './Post';
+import ComposeComponent from "./ComposeComponent";
+import SearchComponent from "./SearchComponent";
 
 require('../styles/App.css');
 
+
 class App extends Component {
+
   state = {
-    isLoading: true,
-    posts: []
+    isLoading: false,
+    posts: [],
+      page: ""
   };
 
-  async componentDidMount() {
-    const response = await fetch('api/posts');
-    const body = await response.json();
-    this.setState({ posts: body, isLoading: false });
+  componentDidMount() {
+    //const response = await fetch('api/posts');
+    //const body = await response.json();
+    this.setState({ page: <SearchComponent/> });
+  }
+
+  topMenuClick(x) {
+    alert(x);
+    if (x === "Search") {
+        this.setState({page: <SearchComponent/> });
+    }
+    if (x === "Publish") {
+        this.setState({page: <ComposeComponent/> });
+    }
+
   }
 
   render() {
@@ -26,15 +42,8 @@ class App extends Component {
 
     return (
         <div className="App">
-          <header className="App-header">
-          <TopNavigation />
-          <LeftPanel />
-            <div className="App-intro">
-              {posts.map(post =>
-                  <Post fecthPost={post}/>
-              )}
-            </div>
-          </header>
+          <TopNavigation onClick={ (a) => this.topMenuClick(a)} />
+            {this.state.page}
         </div>
     );
   }
