@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './ComposeComponent.css';
+
+require('../styles/ComposeComponent.css');
 
 class ComposeComponent extends Component {
 

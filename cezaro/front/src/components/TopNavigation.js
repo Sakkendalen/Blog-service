@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './TopNavigation.css';
 import SearchComponent from './SearchComponent';
 import ComposeComponent from "./ComposeComponent";
+
+require('../styles/TopNavigation.css');
 
 class TopNavigation extends Component {
 

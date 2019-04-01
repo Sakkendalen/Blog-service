@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './LeftPanel.css';
+
+require('../styles/LeftPanel.css');
 
 class LeftPanel extends Component {
 

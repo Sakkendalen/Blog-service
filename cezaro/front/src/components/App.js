@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
 import TopNavigation from './TopNavigation';
 import LeftPanel from './LeftPanel';
 import Post from './Post';
+
+require('../styles/App.css');
 
 class App extends Component {
   state = {
