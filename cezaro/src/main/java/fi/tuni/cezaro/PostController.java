@@ -1,11 +1,15 @@
 package fi.tuni.cezaro;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.Optional;
@@ -70,9 +74,25 @@ public class PostController {
     }
 
     @RequestMapping(value = "/add")
-    public void addPost(@RequestBody String author, @RequestBody String title){
-        System.out.println("xxxx : " +author +"    title : " +title);
-        //postRepo.save(new Post(LocalDateTime.now(), author, title, content));
+    public void addPost(@RequestBody String post){
+
+        ObjectMapper mapper = new ObjectMapper();
+        String author = "";
+        String title = "";
+        String content = "";
+
+        try {
+            JsonNode actualObj = mapper.readTree(post);
+            author = actualObj.get("author").textValue();
+            title = actualObj.get("title").textValue();
+            content = actualObj.get("content").textValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("post : " +author +title + content);
+        postRepo.save(new Post(LocalDateTime.now(), author, title, content));
+        postRepo.save(new Post(LocalDateTime.now(), "mikkooooo", "totsoisioa", "aklsdlakj"));
     }
 
 }

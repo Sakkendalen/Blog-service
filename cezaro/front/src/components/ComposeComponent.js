@@ -25,20 +25,8 @@ class ComposeComponent extends Component {
     handleSubmit(event) {
         alert("nimi : " +this.state.name +" Otsikko : " +this.state.title +" Viesti : " +this.state.text);
 
-
-        fetch('api/add', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                author: 'test1',
-                title: 'test2',
-            })
-        });
-
-        //fetch('api/add', { method: 'post', author: ""+ this.state.name, title: "" +this.state.title + this.state.text});
+        //fetch('api/add', { method: 'post', body: ""+ this.state.name, title: "" +this.state.title + this.state.text});
+        fetch('api/add', { method: 'post', body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text }) });
 
         event.preventDefault();
     }
