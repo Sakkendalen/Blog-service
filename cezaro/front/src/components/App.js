@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import TopNavigation from './TopNavigation';
-import LeftPanel from './LeftPanel';
-import Post from './Post';
 import ComposeComponent from "./ComposeComponent";
 import SearchComponent from "./SearchComponent";
 import Browse from "./Browse";
