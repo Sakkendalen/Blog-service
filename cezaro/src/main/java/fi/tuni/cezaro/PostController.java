@@ -3,6 +3,7 @@ package fi.tuni.cezaro;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONPObject;
+import javafx.geometry.Pos;
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,7 +13,7 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -93,6 +94,42 @@ public class PostController {
         System.out.println("post : " +author +title + content);
         postRepo.save(new Post(LocalDateTime.now(), author, title, content));
         //postRepo.save(new Post(LocalDateTime.now(), "mikkooooo", "totsoisioa", "aklsdlakj"));
+    }
+
+    /*
+    @RequestMapping(value = "/search/{variable}", method= RequestMethod.GET)
+    public Iterable<Post> search(@PathVariable String variable) {
+        System.out.println("variable : " +variable);
+        return postRepo.findAll();
+    }
+    */
+
+    //used to get post
+    // example fetch with url http://localhost:8080/api/post/2001-01-01T12:55:00
+    @RequestMapping(value = "/search/{variable}", method= RequestMethod.GET)
+    public Iterable<Post> getPost(@PathVariable String variable){
+
+    /*
+        Iterable<Post> posts = postRepo.findAll();
+
+        System.out.println(variable);
+
+        List<Post> returnValue = null;
+
+        for(Post post : posts){
+            if(post.getTitle().toLowerCase().equals(variable)){
+                returnValue.add(postRepo.findById(post.getDate()));
+            }
+            else if (post.getAuthor().toLowerCase().equals(variable)){
+                return postRepo.findById(post.getDate());
+            }
+            else if (post.getContent().toLowerCase().contains(variable)){
+                return postRepo.findById(post.getDate());
+            }
+        }
+        return null; */
+        return postRepo.findByAuthor(variable);
+        //return null;
     }
 
 }
