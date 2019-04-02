@@ -92,7 +92,7 @@ public class PostController {
 
         System.out.println("post : " +author +title + content);
         postRepo.save(new Post(LocalDateTime.now(), author, title, content));
-        postRepo.save(new Post(LocalDateTime.now(), "mikkooooo", "totsoisioa", "aklsdlakj"));
+        //postRepo.save(new Post(LocalDateTime.now(), "mikkooooo", "totsoisioa", "aklsdlakj"));
     }
 
 }

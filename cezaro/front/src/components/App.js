@@ -4,6 +4,7 @@ import LeftPanel from './LeftPanel';
 import Post from './Post';
 import ComposeComponent from "./ComposeComponent";
 import SearchComponent from "./SearchComponent";
+import Browse from "./Browse";
 
 require('../styles/App.css');
 
@@ -29,7 +30,9 @@ class App extends Component {
     if (x === "Publish") {
         this.setState({page: <ComposeComponent/> });
     }
-
+    if (x === "Browse") {
+      this.setState({page: Browse/> });
+    }
   }
 
   render() {
