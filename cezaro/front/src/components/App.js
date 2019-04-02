@@ -31,7 +31,7 @@ class App extends Component {
         this.setState({page: <ComposeComponent/> });
     }
     if (x === "Browse") {
-      this.setState({page: Browse/> });
+      this.setState({page: <Browse/> });
     }
   }
 
