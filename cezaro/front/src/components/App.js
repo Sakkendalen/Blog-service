@@ -19,7 +19,7 @@ class App extends Component {
   componentDidMount() {
     //const response = await fetch('api/posts');
     //const body = await response.json();
-    this.setState({ page: <SearchComponent/> });
+    this.setState({ page: <SearchComponent onClick={ (a) => this.showSinglePostClick(a)} /> });
   }
 
   showSinglePostClick(x) {
