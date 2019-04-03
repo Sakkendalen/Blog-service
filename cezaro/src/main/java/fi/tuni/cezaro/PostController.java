@@ -25,9 +25,9 @@ public class PostController {
     //Testing database
     @PostConstruct
     public void loadData() {
-        postRepo.save(new Post(LocalDateTime.of(2001, 1 , 1, 12, 55), "Saku","JAVASCRIPT ON BEBAST", "mita pyllyt tekee pusikossa"));
-        postRepo.save(new Post(LocalDateTime.of(2002, 1 , 1, 12, 55), "Mikko","JAVASCRIPT ON THE BEST", "Vakoilee"));
-        postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 55), "Matti","TAH?!", "MIS MOON?!"));
+        postRepo.save(new Post(LocalDateTime.of(2001, 1 , 1, 12, 55,10 ,10 ), "Saku","JAVASCRIPT ON BEBAST", "mita pyllyt tekee pusikossa"));
+        postRepo.save(new Post(LocalDateTime.of(2002, 1 , 1, 12, 55, 10,10), "Mikko","JAVASCRIPT ON THE BEST", "Vakoilee"));
+        postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 55, 10, 10), "Matti","TAH?!", "MIS MOON?!"));
     }
 
     public void createPost(LocalDateTime time, String author, String title, String content){
@@ -92,7 +92,6 @@ public class PostController {
         }
 
         System.out.println("post : " +author +title + content);
-        //postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 59), author,title, content));
         postRepo.save(new Post(LocalDateTime.now().withNano(0), author, title, content));
         //postRepo.save(new Post(LocalDateTime.now(), "mikkooooo", "totsoisioa", "aklsdlakj"));
         //postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 30, 20), author, title, content));

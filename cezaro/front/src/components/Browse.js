@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Post from './Post';
 
+require('../styles/Browse.css');
+
 class Browse extends Component {
 
     constructor(props){
@@ -19,7 +21,7 @@ class Browse extends Component {
 
     render(){
         return(
-            <div>
+            <div className="Browsediv">
                 <h2>Post List</h2>
                 {this.state.posts.map(post =>
                     <div key={post.date} onClick={ () => this.props.onClick( post.date ) }>
