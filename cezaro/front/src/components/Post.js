@@ -6,7 +6,6 @@ class Post extends Component {
 
     constructor(props){
         super(props);
-        this.state = {content: ''};
     }
 
     async componentDidMount() {
@@ -15,7 +14,7 @@ class Post extends Component {
 
     render() {
 
-        if (this.state.content === null){
+        if (this.props.content == null){
 
             return (
             <div className="post">

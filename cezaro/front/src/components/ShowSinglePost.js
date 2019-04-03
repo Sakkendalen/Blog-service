@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Post from './Post';
 
+require('../styles/ShowSinglePost.css');
+
 class ShowSinglePost extends Component {
 
     constructor(props){
@@ -20,7 +22,7 @@ class ShowSinglePost extends Component {
 
     render() {
         return (
-            <div className="ComposeComponentDiv">
+            <div className="ShowSingePostdiv">
                 <Post date = {this.state.post.date} title = {this.state.post.title} author = {this.state.post.author} content = {this.state.post.content}/>
                 <button onClick={this.deletePost}>Delete</button>
             </div>
