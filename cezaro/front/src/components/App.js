@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TopNavigation from './TopNavigation';
 import ComposeComponent from "./ComposeComponent";
 import SearchComponent from "./SearchComponent";
+import ShowSinglePost from "./ShowSinglePost";
 import Browse from "./Browse";
 
 require('../styles/App.css');
@@ -21,15 +22,20 @@ class App extends Component {
     this.setState({ page: <SearchComponent/> });
   }
 
+  showSinglePostClick(x) {
+    //alert("show single post function from App.js " +x);
+    this.setState( {page: <ShowSinglePost date={x}/>})
+  }
+
   topMenuClick(x) {
     if (x === "Search") {
-        this.setState({page: <SearchComponent/> });
+        this.setState({page: <SearchComponent onClick={ (a) => this.showSinglePostClick(a)} /> });
     }
     if (x === "Publish") {
         this.setState({page: <ComposeComponent/> });
     }
     if (x === "Browse") {
-      this.setState({page: <Browse/> });
+      this.setState({page: <Browse onClick={ (a) => this.showSinglePostClick(a)}/> });
     }
   }
 

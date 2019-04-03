@@ -45,7 +45,7 @@ class SearchComponent extends Component {
                 </form>
 
                 {this.state.posts.map(post =>
-                    <div key={post.date}>
+                    <div key={post.date} onClick={ () => this.props.onClick( post.date ) }>
                         <Post date = {post.date} author = {post.author} title = {post.title} />
                         <br></br>
                     </div>
