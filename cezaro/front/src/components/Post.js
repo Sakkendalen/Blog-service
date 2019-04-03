@@ -15,7 +15,7 @@ class Post extends Component {
 
     render() {
 
-        if (this.state.content === ''){
+        if (this.state.content === null){
 
             return (
             <div className="post">

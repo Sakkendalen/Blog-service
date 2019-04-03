@@ -41,8 +41,8 @@ public class PostController {
 
     }
 
-    //used to get post
-    // example fetch with url http://localhost:8080/api/post/2001-01-01T12:55:00
+    //used to get post curl -X GET http://localhost:8080/api/post/2001-01-01T12:55:00
+    // example fetch with url example: curl -X GET http://localhost:8080/api/post/2001-01-01T12:55:00
     @RequestMapping(value = "/post/{date}", method= RequestMethod.GET)
     public Optional<Post> getPost(
             @PathVariable(value="date")
@@ -132,4 +132,10 @@ public class PostController {
         //return null;
     }
 
+    @RequestMapping(value = "/update")
+    public void updatePost(@RequestBody String post) {
+
+        //Post alteredPost = postRepo.findByAuthor(post).get();
+
+    }
 }
