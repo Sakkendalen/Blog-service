@@ -5,6 +5,7 @@
 target/
 *.class
 /build
+**/node_modules
 
 # Log file
 *.log

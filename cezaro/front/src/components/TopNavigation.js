@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './TopNavigation.css';
 import SearchComponent from './SearchComponent';
 import ComposeComponent from "./ComposeComponent";
+
+require('../styles/TopNavigation.css');
 
 class TopNavigation extends Component {
 
@@ -37,13 +38,12 @@ class TopNavigation extends Component {
     return (
     <div className="TopNavDiv">
       <ul className="TopNavUL">
-        <li>Browse</li>
-        <li> <button type="submit" onClick={() => { this.setBarState("SearchComponent") }}>Search</button> </li>
+        <li> <button type="submit" onClick={ () => this.props.onClick( "Browse" ) }>Browse</button> </li>
+        <li> <button type="submit" onClick={ () => this.props.onClick( "Search" ) }>Search</button> </li>
+        <li> <button type="submit" onClick={ () => this.props.onClick( "Publish" ) }>Publish</button> </li>
         <li>Delete</li>
         <li>Modify</li>
-        <li> <button type="submit" onClick={() => { this.setBarState("ComposeComponent") }}>Search</button> </li>
       </ul>
-      {a}
     </div>
     )
   }
