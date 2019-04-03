@@ -3,6 +3,7 @@ import TopNavigation from './TopNavigation';
 import ComposeComponent from "./ComposeComponent";
 import SearchComponent from "./SearchComponent";
 import ShowSinglePost from "./ShowSinglePost";
+import ModifyComponent from "./ModifyComponent";
 import Browse from "./Browse";
 
 require('../styles/App.css');
@@ -22,9 +23,14 @@ class App extends Component {
     this.setState({ page: <SearchComponent onClick={ (a) => this.showSinglePostClick(a)} /> });
   }
 
+  modifyPostClick(x) {
+    //alert("modifyy post from app.js date : " +x);
+    this.setState( {page: <ModifyComponent date ={x}/>})
+  }
+
   showSinglePostClick(x) {
     //alert("show single post function from App.js " +x);
-    this.setState( {page: <ShowSinglePost date={x} setMainPage={() => this.setMainPage() }/>})
+    this.setState( {page: <ShowSinglePost date={x} setMainPage={() => this.setMainPage()} modifyPostClick={(a) => this.modifyPostClick(a)}/>})
   }
 
   setMainPage() {
