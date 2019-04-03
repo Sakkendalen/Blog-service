@@ -24,7 +24,11 @@ class App extends Component {
 
   showSinglePostClick(x) {
     //alert("show single post function from App.js " +x);
-    this.setState( {page: <ShowSinglePost date={x}/>})
+    this.setState( {page: <ShowSinglePost date={x} setMainPage={() => this.setMainPage() }/>})
+  }
+
+  setMainPage() {
+    this.setState( {page: <Browse onClick={ (a) => this.showSinglePostClick(a)}/> });
   }
 
   topMenuClick(x) {

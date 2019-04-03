@@ -92,8 +92,10 @@ public class PostController {
         }
 
         System.out.println("post : " +author +title + content);
-        postRepo.save(new Post(LocalDateTime.now(), author, title, content));
+        //postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 59), author,title, content));
+        postRepo.save(new Post(LocalDateTime.now().withNano(0), author, title, content));
         //postRepo.save(new Post(LocalDateTime.now(), "mikkooooo", "totsoisioa", "aklsdlakj"));
+        //postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 30, 20), author, title, content));
     }
 
     /*
