@@ -138,27 +138,27 @@ public class PostController {
                                @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") LocalDateTime date,
                                 @RequestBody String post) {
 
-        Post alteredPost = postRepo.findById(date).get();
+        if(postRepo.findById(date).isPresent()) {
+            Post alteredPost = postRepo.findById(date).get();
 
-        ObjectMapper mapper = new ObjectMapper();
-        String author = "";
-        String title = "";
-        String content = "";
+            ObjectMapper mapper = new ObjectMapper();
+            String author = "";
+            String title = "";
+            String content = "";
 
-        try {
-            JsonNode actualObj = mapper.readTree(post);
-            author = actualObj.get("author").textValue();
-            title = actualObj.get("title").textValue();
-            content = actualObj.get("content").textValue();
-            alteredPost.setAuthor(author);
-            alteredPost.setTitle(title);
-            alteredPost.setContent(content);
-            postRepo.save(alteredPost);
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                JsonNode actualObj = mapper.readTree(post);
+                author = actualObj.get("author").textValue();
+                title = actualObj.get("title").textValue();
+                content = actualObj.get("content").textValue();
+                alteredPost.setAuthor(author);
+                alteredPost.setTitle(title);
+                alteredPost.setContent(content);
+                postRepo.save(alteredPost);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
-
 
     }
 }
