@@ -11,7 +11,7 @@ class ShowSinglePost extends Component {
     }
 
     async componentDidMount() {
-        alert("time : " +this.props.date);
+
         const response = await fetch('api/post/' +this.props.date );
         const body = await response.json();
         this.setState({ post: body });

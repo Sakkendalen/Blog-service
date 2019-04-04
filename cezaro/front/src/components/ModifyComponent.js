@@ -18,14 +18,13 @@ class ModifyComponent extends Component {
     }
 
     async componentDidMount() {
-        alert("time : " +this.props.date);
+
         const response = await fetch('api/post/' +this.props.date );
         const body = await response.json();
         this.setState({ text: body.content, name: body.author, title: body.title });
     }
 
     handleSubmit(event) {
-        alert("nimi : " +this.state.name +" Otsikko : " +this.state.title +" Viesti : " +this.state.text);
 
         //fetch('api/add', { method: 'post', body: ""+ this.state.name, title: "" +this.state.title + this.state.text});
         fetch('api/update/' + this.props.date, { method: 'post', body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text }) });

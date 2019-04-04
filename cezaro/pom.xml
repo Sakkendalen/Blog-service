@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>fi.tuni</groupId>
 	<artifactId>cezaro</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>cezaro</name>
-	<description>Demo project for Spring Boot</description>
+	<version>V.0.2</version>
+	<name>blog-service</name>
+	<description>Web App project work</description>
 
 	<properties>
 		<java.version>1.8</java.version>
