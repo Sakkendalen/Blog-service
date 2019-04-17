@@ -75,8 +75,10 @@ public class PostController {
     }
 
     @RequestMapping(value = "/add")
-    public void addPost(@RequestBody String post){
+    //public void addPost(@RequestBody String post){
+    public void addPost( @RequestBody Post post) {
 
+        /*
         ObjectMapper mapper = new ObjectMapper();
         String author = "";
         String title = "";
@@ -89,10 +91,11 @@ public class PostController {
             content = actualObj.get("content").textValue();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        } */
 
-        System.out.println("post : " +author +title + content);
-        postRepo.save(new Post(LocalDateTime.now().withNano(0), author, title, content));
+        System.out.println("Author : " +post.getAuthor() +" Title : " +post.getTitle() +" Content : " + post.getContent());
+
+        postRepo.save(new Post(LocalDateTime.now().withNano(0), post.getAuthor(), post.getTitle(), post.getContent()));
         //postRepo.save(new Post(LocalDateTime.now(), "mikkooooo", "totsoisioa", "aklsdlakj"));
         //postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 30, 20), author, title, content));
     }
