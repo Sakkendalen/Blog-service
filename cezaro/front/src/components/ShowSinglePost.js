@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Post from './Post';
+import Comments from './Comments';
 
 require('../styles/ShowSinglePost.css');
 
@@ -11,7 +12,6 @@ class ShowSinglePost extends Component {
     }
 
     async componentDidMount() {
-
         const response = await fetch('api/post/' +this.props.date );
         const body = await response.json();
         this.setState({ post: body });
@@ -28,6 +28,7 @@ class ShowSinglePost extends Component {
                 <Post date = {this.state.post.date} title = {this.state.post.title} author = {this.state.post.author} content = {this.state.post.content}/>
                 <button onClick={() => this.deletePost() }>Delete</button>
                 <button onClick={() => this.props.modifyPostClick(this.state.post.date)}>Modify</button>
+                <Comments/>
             </div>
         );
     }
