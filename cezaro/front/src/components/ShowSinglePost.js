@@ -11,23 +11,22 @@ class ShowSinglePost extends Component {
     }
 
     async componentDidMount() {
-
-        const response = await fetch('api/post/' +this.props.date );
+        const response = await fetch('api/post/' +this.props.id );
         const body = await response.json();
         this.setState({ post: body });
     }
 
     async deletePost(){
-        await fetch('api/delete/' +this.state.post.date);
+        await fetch('api/delete/' +this.state.post.id);
         this.props.setMainPage();
     }
 
     render() {
         return (
             <div className="ShowSingePostdiv">
-                <Post date = {this.state.post.date} title = {this.state.post.title} author = {this.state.post.author} content = {this.state.post.content}/>
+                <Post id = {this.state.post.id} date = {this.state.post.date} title = {this.state.post.title} author = {this.state.post.author} content = {this.state.post.content}/>
                 <button onClick={() => this.deletePost() }>Delete</button>
-                <button onClick={() => this.props.modifyPostClick(this.state.post.date)}>Modify</button>
+                <button onClick={() => this.props.modifyPostClick(this.state.post.id)}>Modify</button>
             </div>
         );
     }

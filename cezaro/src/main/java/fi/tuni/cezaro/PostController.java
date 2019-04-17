@@ -30,10 +30,6 @@ public class PostController {
         postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 55, 10, 10), "Matti","TAH?!", "MIS MOON?!"));
     }
 
-    public void createPost(LocalDateTime time, String author, String title, String content){
-        postRepo.save(new Post(time, author, title, content));
-    }
-
     @GetMapping(value = "/posts")
     public Iterable<Post> findAll() {
 
@@ -41,31 +37,44 @@ public class PostController {
 
     }
 
-    //used to get post curl -X GET http://localhost:8080/api/post/2001-01-01T12:55:00
-    // example fetch with url example: curl -X GET http://localhost:8080/api/post/2001-01-01T12:55:00
-    @RequestMapping(value = "/post/{date}", method= RequestMethod.GET)
-    public Optional<Post> getPost(
-            @PathVariable(value="date")
-            @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") LocalDateTime date){
+    // used to get post by id
+    // example fetch with url example: curl -X GET http://localhost:8080/api/post/1
+    @RequestMapping(value = "/post/{id}", method= RequestMethod.GET)
+    public Optional<Post> getPost(@PathVariable long id){
 
-        if(postRepo.findById(date).isPresent()) {
-            return postRepo.findById(date);
+        if(postRepo.findById(id).isPresent()) {
+            return postRepo.findById(id);
         }
         else{
             return null;
         }
     }
 
-    @RequestMapping(value = "/delete/{date}")
-    public void delPost(
-            @PathVariable(value="date")
-            @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") LocalDateTime date) {
+    // used to get post by string value
+    // example fetch with url http://localhost:8080/api/search/sa
+    @RequestMapping(value = "/search/{variable}", method= RequestMethod.GET)
+    public Iterable<Post> getPost(@PathVariable String variable){
 
-        if(postRepo.findById(date).isPresent()) {
+        List<Post> returnValue = new ArrayList<>();
 
-            System.out.println("deleting: " + postRepo.findById(date));
+        returnValue.addAll(postRepo.findByAuthorContainingIgnoreCase(variable));
+        returnValue.addAll(postRepo.findByTitleContainingIgnoreCase(variable));
+        returnValue.addAll(postRepo.findByContentContainingIgnoreCase(variable));
 
-            postRepo.deleteById(date);
+        System.out.println(returnValue);
+
+        return returnValue;
+
+    }
+
+    @RequestMapping(value = "/delete/{id}")
+    public void delPost(@PathVariable long id) {
+
+        if(postRepo.findById(id).isPresent()) {
+
+            System.out.println("deleting: " + postRepo.findById(id));
+
+            postRepo.deleteById(id);
         }
         else{
 
@@ -76,7 +85,7 @@ public class PostController {
 
     @RequestMapping(value = "/add")
     //public void addPost(@RequestBody String post){
-    public void addPost( @RequestBody Post post) {
+    public void addPost(@RequestBody Post post) {
 
         /*
         ObjectMapper mapper = new ObjectMapper();
@@ -108,30 +117,12 @@ public class PostController {
     }
     */
 
-    //used to get post
-    // example fetch with url http://localhost:8080/api/post/2001-01-01T12:55:00
-    @RequestMapping(value = "/search/{variable}", method= RequestMethod.GET)
-    public Iterable<Post> getPost(@PathVariable String variable){
-
-        List<Post> returnValue = new ArrayList<>();
-
-        returnValue.addAll(postRepo.findByAuthorContainingIgnoreCase(variable));
-        returnValue.addAll(postRepo.findByTitleContainingIgnoreCase(variable));
-        returnValue.addAll(postRepo.findByContentContainingIgnoreCase(variable));
-
-        System.out.println(returnValue);
-
-        return returnValue;
-        
-    }
-
-    @RequestMapping(value = "/update/{date}")
-    public void updatePost(@PathVariable(value="date")
-                               @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") LocalDateTime date,
+    @RequestMapping(value = "/update/{id}")
+    public void updatePost(@PathVariable long id,
                                 @RequestBody Post post) {
 
-        if(postRepo.findById(date).isPresent()) {
-            Post alteredPost = postRepo.findById(date).get();
+        if(postRepo.findById(id).isPresent()) {
+            Post alteredPost = postRepo.findById(id).get();
 
             System.out.println("Jutut : " +post.getAuthor() +post.getTitle() +post.getContent());
 
