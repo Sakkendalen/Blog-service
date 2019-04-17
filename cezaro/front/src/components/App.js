@@ -25,12 +25,12 @@ class App extends Component {
 
   modifyPostClick(x) {
     //alert("modifyy post from app.js date : " +x);
-    this.setState( {page: <ModifyComponent date ={x}/>})
+    this.setState( {page: <ModifyComponent id ={x}/>})
   }
 
   showSinglePostClick(x) {
     //alert("show single post function from App.js " +x);
-    this.setState( {page: <ShowSinglePost date={x} setMainPage={() => this.setMainPage()} modifyPostClick={(a) => this.modifyPostClick(a)}/>})
+    this.setState( {page: <ShowSinglePost id={x} setMainPage={() => this.setMainPage()} modifyPostClick={(a) => this.modifyPostClick(a)}/>})
   }
 
   setMainPage() {

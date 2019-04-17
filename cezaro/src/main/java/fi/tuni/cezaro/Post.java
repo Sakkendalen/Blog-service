@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
@@ -17,6 +18,8 @@ import java.time.LocalDateTime;
 public class Post {
 
     @Id
+    @GeneratedValue
+    private long id;
     private LocalDateTime date;
     private String author;
     private String title;
@@ -31,6 +34,14 @@ public class Post {
         this.author = author;
         this.title = title;
         this.content = content;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public LocalDateTime getDate() {
@@ -67,8 +78,9 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Blog{" +
-                "date=" + date +
+        return "Post{" +
+                "id=" + id +
+                ", date=" + date +
                 ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +

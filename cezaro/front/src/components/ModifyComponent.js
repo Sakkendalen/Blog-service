@@ -19,7 +19,7 @@ class ModifyComponent extends Component {
 
     async componentDidMount() {
 
-        const response = await fetch('api/post/' +this.props.date );
+        const response = await fetch('api/post/' +this.props.id );
         const body = await response.json();
         this.setState({ text: body.content, name: body.author, title: body.title });
     }
@@ -27,7 +27,7 @@ class ModifyComponent extends Component {
     handleSubmit(event) {
 
         //fetch('api/add', { method: 'post', body: ""+ this.state.name, title: "" +this.state.title + this.state.text});
-        fetch('api/update/' + this.props.date, {
+        fetch('api/update/' + this.props.id, {
             method: 'post',
             headers:{
                 "Content-Type": "application/json"

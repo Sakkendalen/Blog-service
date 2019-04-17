@@ -1,12 +1,9 @@
 package fi.tuni.cezaro;
 
 import org.springframework.data.repository.CrudRepository;
-
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
-public interface PostRepository extends CrudRepository<Post, LocalDateTime> {
+public interface PostRepository extends CrudRepository<Post, Long> {
 
     //void findAllById(Optional<Post> byId);
 
