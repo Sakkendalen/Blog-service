@@ -139,12 +139,14 @@ public class PostController {
     @RequestMapping(value = "/update/{date}")
     public void updatePost(@PathVariable(value="date")
                                @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") LocalDateTime date,
-                                @RequestBody String post) {
+                                @RequestBody Post post) {
 
         if(postRepo.findById(date).isPresent()) {
             Post alteredPost = postRepo.findById(date).get();
 
-            ObjectMapper mapper = new ObjectMapper();
+            System.out.println("Jutut : " +post.getAuthor() +post.getTitle() +post.getContent());
+
+            /*ObjectMapper mapper = new ObjectMapper();
             String author = "";
             String title = "";
             String content = "";
@@ -160,7 +162,11 @@ public class PostController {
                 postRepo.save(alteredPost);
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            } */
+            alteredPost.setAuthor(post.getAuthor());
+            alteredPost.setTitle(post.getTitle());
+            alteredPost.setContent(post.getContent());
+            postRepo.save(alteredPost);
         }
 
     }

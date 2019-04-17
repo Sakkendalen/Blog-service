@@ -27,7 +27,13 @@ class ModifyComponent extends Component {
     handleSubmit(event) {
 
         //fetch('api/add', { method: 'post', body: ""+ this.state.name, title: "" +this.state.title + this.state.text});
-        fetch('api/update/' + this.props.date, { method: 'post', body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text }) });
+        fetch('api/update/' + this.props.date, {
+            method: 'post',
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text })
+        });
 
         event.preventDefault();
     }
