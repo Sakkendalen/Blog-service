@@ -113,27 +113,16 @@ public class PostController {
     @RequestMapping(value = "/search/{variable}", method= RequestMethod.GET)
     public Iterable<Post> getPost(@PathVariable String variable){
 
-    /*
-        Iterable<Post> posts = postRepo.findAll();
+        List<Post> returnValue = new ArrayList<>();
 
-        System.out.println(variable);
+        returnValue.addAll(postRepo.findByAuthorContainingIgnoreCase(variable));
+        returnValue.addAll(postRepo.findByTitleContainingIgnoreCase(variable));
+        returnValue.addAll(postRepo.findByContentContainingIgnoreCase(variable));
 
-        List<Post> returnValue = null;
+        System.out.println(returnValue);
 
-        for(Post post : posts){
-            if(post.getTitle().toLowerCase().equals(variable)){
-                returnValue.add(postRepo.findById(post.getDate()));
-            }
-            else if (post.getAuthor().toLowerCase().equals(variable)){
-                return postRepo.findById(post.getDate());
-            }
-            else if (post.getContent().toLowerCase().contains(variable)){
-                return postRepo.findById(post.getDate());
-            }
-        }
-        return null; */
-        return postRepo.findByAuthor(variable);
-        //return null;
+        return returnValue;
+        
     }
 
     @RequestMapping(value = "/update/{date}")
