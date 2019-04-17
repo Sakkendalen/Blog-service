@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import Comment from "./Comment";
+import Post from "./Browse";
 
 class Comments extends Component {
 
     constructor(props) {
         super(props);
+        console.log("Kun Comments constructor  ID :" +this.props.postID);
         this.state = {
+            postID: this.props.postID,
             commentFieldText: "",
-            name: ""
+            name: "",
+            comments: []
         };
 
         this.handleTextChange = this.handleTextChange.bind(this);
@@ -15,11 +20,25 @@ class Comments extends Component {
     }
 
     async componentDidMount() {
+        const response = await fetch('comment/getComments/' +this.props.postID);
+        const body = await response.json();
+        this.setState({ comments: body});
 
+        console.log("print fetch :" );
+        for (let x in body) {
+            console.log(body[x].pseudonym);
+        }
     }
 
     handleSubmit(event) {
         //fetch
+        fetch('comment/add', {
+            method: 'post',
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ pseudonym: this.state.name, content: this.state.commentFieldText, postId: this.props.postID})
+        });
         event.preventDefault();
     }
 
@@ -31,7 +50,15 @@ class Comments extends Component {
         this.setState( {name: event.target.value});
     }
 
+
+    /*{this.state.comments.map(comment =>
+        <div key={comment.id}>
+            <Comment id = {comment.id} date = {comment.datetime} pseudonym = {comment.pseudonym} content = {comment.content} />
+        </div>
+    )}*/
+
     render() {
+        console.log("ID kun commentS render alkaa : " +this.state.postID);
         return (
             <div>
                 <h1>Comments Component</h1>
@@ -42,7 +69,16 @@ class Comments extends Component {
                     <input type ="text" name="name" onChange={this.handleNameChange} />
                     <input type="submit" value="Comment" />
                 </form>
+                <br/>
+
+                {this.state.comments.map(comment =>
+                    <div key={comment.id}>
+                        <Comment id = {comment.id} datetime = {comment.datetime} pseudonym = {comment.pseudonym} content = {comment.content} />
+                        <br/>
+                    </div>
+                )}
             </div>
+
         );
     }
 

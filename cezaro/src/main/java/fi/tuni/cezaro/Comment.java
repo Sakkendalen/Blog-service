@@ -20,6 +20,10 @@ public class Comment {
     private long postId;
     private LocalDateTime datetime;
 
+    public Comment() {
+
+    }
+
     public Comment(String pseudonym, String content, long postId, LocalDateTime datetime) {
         this.pseudonym = pseudonym;
         this.content = content;

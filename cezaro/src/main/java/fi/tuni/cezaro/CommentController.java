@@ -17,13 +17,15 @@ public class CommentController {
         return comRepo.findAll();
     }
 
-    @RequestMapping(value = "/asdasd/{postID}", method= RequestMethod.GET)
+    @RequestMapping(value = "/getComments/{postID}", method= RequestMethod.GET)
     public Iterable<Comment> findCommentInPost(@PathVariable long postID){
+        System.out.println("Return for comments start ");
         return comRepo.findByPostIdOrderByDatetimeAsc(postID);
     }
 
     @RequestMapping(value = "/add")
     public void addComment(@RequestBody Comment comment){
+        System.out.println("Comment added from " +comment.getPseudonym());
         comRepo.save(new Comment(comment.getPseudonym(), comment.getContent(), comment.getPostId(), LocalDateTime.now().withNano(0)));
     }
 
