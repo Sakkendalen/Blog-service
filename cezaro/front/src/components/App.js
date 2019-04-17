@@ -4,6 +4,7 @@ import ComposeComponent from "./ComposeComponent";
 import SearchComponent from "./SearchComponent";
 import ShowSinglePost from "./ShowSinglePost";
 import ModifyComponent from "./ModifyComponent";
+import FrontPage from "./FrontPage";
 import Browse from "./Browse";
 
 require('../styles/App.css');
@@ -20,12 +21,13 @@ class App extends Component {
   componentDidMount() {
     //const response = await fetch('api/posts');
     //const body = await response.json();
-    this.setState({ page: <SearchComponent onClick={ (a) => this.showSinglePostClick(a)} /> });
+    //this.setState({ page: <SearchComponent onClick={ (a) => this.showSinglePostClick(a)} /> });
+      this.setState( {page : <FrontPage/>});
   }
 
   modifyPostClick(x) {
     //alert("modifyy post from app.js date : " +x);
-    this.setState( {page: <ModifyComponent id ={x}/>})
+    this.setState( {page: <ModifyComponent id ={x} setMainPage={() => this.setMainPage()}/>})
   }
 
   showSinglePostClick(x) {
@@ -34,7 +36,8 @@ class App extends Component {
   }
 
   setMainPage() {
-    this.setState( {page: <Browse onClick={ (a) => this.showSinglePostClick(a)}/> });
+    //this.setState( {page: <Browse onClick={ (a) => this.showSinglePostClick(a)}/> });
+      this.setState( { page : <FrontPage/> });
   }
 
   topMenuClick(x) {
@@ -42,7 +45,7 @@ class App extends Component {
         this.setState({page: <SearchComponent onClick={ (a) => this.showSinglePostClick(a)} /> });
     }
     if (x === "Publish") {
-        this.setState({page: <ComposeComponent/> });
+        this.setState({page: <ComposeComponent setMainPage={() => this.setMainPage()}/> });
     }
     if (x === "Browse") {
       this.setState({page: <Browse onClick={ (a) => this.showSinglePostClick(a)}/> });

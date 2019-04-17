@@ -26,6 +26,8 @@ class ModifyComponent extends Component {
 
     handleSubmit(event) {
 
+        event.preventDefault();
+
         //fetch('api/add', { method: 'post', body: ""+ this.state.name, title: "" +this.state.title + this.state.text});
         fetch('api/update/' + this.props.id, {
             method: 'post',
@@ -35,7 +37,7 @@ class ModifyComponent extends Component {
             body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text })
         });
 
-        event.preventDefault();
+        this.props.setMainPage();
     }
 
     handleTextChange(event) {

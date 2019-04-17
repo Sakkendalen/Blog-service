@@ -34,6 +34,7 @@ class ComposeComponent extends Component {
         });
 
         event.preventDefault();
+        this.props.setMainPage();
     }
 
     handleTextChange(event) {
