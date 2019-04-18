@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/comment")
@@ -36,6 +37,11 @@ public class CommentController {
 
     @RequestMapping(value = "/like/{commentID}")
     public void addLike(@PathVariable long commentID){
-        comRepo.findById(commentID);
+        
+        if(comRepo.findById(commentID).isPresent()){
+            Comment likedCom = comRepo.findById(commentID).get();
+            likedCom.setLikes(likedCom.getLikes() + 1);
+            comRepo.save(likedCom);
+        }
     }
 }
