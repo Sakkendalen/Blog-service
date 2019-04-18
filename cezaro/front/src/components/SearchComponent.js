@@ -9,7 +9,7 @@ class SearchComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchValue: "Search",
+            searchValue: "",
             isLoading: false,
             posts: []
         };
@@ -41,7 +41,9 @@ class SearchComponent extends Component {
                     <label>Search</label>
                     <input
                         type="text" value={this.state.searchValue}
-                        name="name" onChange={this.handleChange} />
+                        name="name" onChange={this.handleChange}
+                        required
+                    />
 
                     <input type="submit" value="Submit" />
                 </form>

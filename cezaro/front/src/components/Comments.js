@@ -98,13 +98,17 @@ class Comments extends Component {
                             type="text"
                             name="comment"
                             value={this.state.commentFieldText}
-                            onChange={this.handleTextChange} />
+                            onChange={this.handleTextChange}
+                            required
+                            />
                         <label>Your name :</label>
                         <input
                             type ="text"
                             name="name"
                             value={this.state.name}
-                            onChange={this.handleNameChange} />
+                            onChange={this.handleNameChange}
+                            required
+                        />
                     </div>
                     <input type="submit" value="Comment" />
                 </form>

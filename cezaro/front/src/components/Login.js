@@ -72,13 +72,17 @@ class Login extends Component{
                             type="text"
                             name="username"
                             value={this.state.usernameFieldText}
-                            onChange={this.handleUsernameChange} />
+                            onChange={this.handleUsernameChange}
+                            required
+                        />
                         <label>Password</label>
                         <input
-                            type ="text"
+                            type ="password"
                             name="password"
                             value={this.state.passwordFieldText}
-                            onChange={this.handlePasswordChange} />
+                            onChange={this.handlePasswordChange}
+                            required
+                        />
                     </div>
                     <input type="submit" value="Login" />
                 </form>

@@ -62,20 +62,26 @@ class ComposeComponent extends Component {
                         type="text"
                         name="name"
                         value={this.state.name}
-                        onChange={this.handleNameChange} />
+                        onChange={this.handleNameChange}
+                        required
+                    />
 
                     <label>Title</label>
                     <input
                         type="text"
                         name="title"
                         value={this.state.title}
-                        onChange={this.handleTitleChange} />
+                        onChange={this.handleTitleChange}
+                        required
+                    />
 
                     <label>
                         Essay:
                         <textarea
                             value={this.state.text}
-                            onChange={this.handleTextChange} />
+                            onChange={this.handleTextChange}
+                            required
+                        />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
