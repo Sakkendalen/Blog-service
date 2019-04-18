@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+require("../styles/Login.css");
+
 class Login extends Component{
 
     constructor(props){
@@ -55,7 +57,7 @@ class Login extends Component{
 
     render() {
         return(
-            <div>
+            <div className="logdinDiv">
                 <h1>LOgin</h1>
                 <h1>LOgin</h1>
                 <h1>LOgin</h1>
