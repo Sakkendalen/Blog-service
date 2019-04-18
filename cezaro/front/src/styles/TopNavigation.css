@@ -1,11 +1,11 @@
 .TopNavDiv {
     width: 100%;
     position: fixed;
-    top: 0px;
     text-align: center;
     background-color: lightgray;
     padding: 1%;
     z-index: 100;
+    min-height: 15vh;
 }
 
 .h1{
