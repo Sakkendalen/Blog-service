@@ -19,6 +19,7 @@ public class Comment {
     private String content;
     private long postId;
     private LocalDateTime datetime;
+    private long likes;
 
     public Comment() {
 
@@ -29,6 +30,7 @@ public class Comment {
         this.content = content;
         this.postId = postId;
         this.datetime = datetime;
+        this.likes = 0;
     }
 
     public long getId() {
@@ -69,6 +71,12 @@ public class Comment {
 
     public void setDatetime(LocalDateTime datetime) {
         this.datetime = datetime;
+    }
+
+    public long getLikes() { return likes; }
+
+    public void setLikes(long likes) {
+        this.likes = likes;
     }
 
     @Override

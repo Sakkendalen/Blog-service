@@ -50,6 +50,13 @@ class Comments extends Component {
         this.setState( {name: event.target.value});
     }
 
+    likeButton(commentId) {
+        console.log("likebutton " +commentId);
+        fetch('comment/like/' +commentId, {
+            method: 'post'
+        });
+    }
+
 
     /*{this.state.comments.map(comment =>
         <div key={comment.id}>
@@ -74,6 +81,8 @@ class Comments extends Component {
                 {this.state.comments.map(comment =>
                     <div key={comment.id}>
                         <Comment id = {comment.id} datetime = {comment.datetime} pseudonym = {comment.pseudonym} content = {comment.content} />
+                        <div onClick={() => this.likeButton(comment.id) }>Like Button</div>
+                        <span>likes : {comment.likes}</span>
                         <br/>
                     </div>
                 )}
