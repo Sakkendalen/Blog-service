@@ -65,6 +65,9 @@ class App extends Component {
     if (x === "Login") {
       this.setState({page: <Login setUser={(a) => this.setUser(a)}/> });
     }
+    if (x === "Logout") {
+      this.setState({page: <FrontPage/>, userType: false});
+    }
   }
 
   render() {
