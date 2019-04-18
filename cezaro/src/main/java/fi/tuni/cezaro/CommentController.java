@@ -21,7 +21,7 @@ public class CommentController {
     @RequestMapping(value = "/getComments/{postID}", method= RequestMethod.GET)
     public Iterable<Comment> findCommentInPost(@PathVariable long postID){
         System.out.println("Return for comments start ");
-        return comRepo.findByPostIdOrderByDatetimeAsc(postID);
+        return comRepo.findByPostIdOrderByDatetimeDesc(postID);
     }
 
     @RequestMapping(value = "/add")

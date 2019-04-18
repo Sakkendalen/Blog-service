@@ -32,9 +32,9 @@ class ComposeComponent extends Component {
             },
             body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text })
         });
-
+        this.setState({text: "", name: "", title: ""});
         event.preventDefault();
-        this.props.setMainPage();
+        //this.props.setMainPage();
     }
 
     handleTextChange(event) {
@@ -61,12 +61,14 @@ class ComposeComponent extends Component {
                     <input
                         type="text"
                         name="name"
+                        value={this.state.name}
                         onChange={this.handleNameChange} />
 
                     <label>Title</label>
                     <input
                         type="text"
                         name="title"
+                        value={this.state.title}
                         onChange={this.handleTitleChange} />
 
                     <label>

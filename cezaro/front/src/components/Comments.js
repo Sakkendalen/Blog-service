@@ -11,7 +11,8 @@ class Comments extends Component {
             postID: this.props.postID,
             commentFieldText: "",
             name: "",
-            comments: []
+            comments: [],
+            liked: []
         };
 
         this.handleTextChange = this.handleTextChange.bind(this);
@@ -23,23 +24,27 @@ class Comments extends Component {
         const response = await fetch('comment/getComments/' +this.props.postID);
         const body = await response.json();
         this.setState({ comments: body});
-
-        console.log("print fetch :" );
-        for (let x in body) {
-            console.log(body[x].pseudonym);
-        }
     }
 
-    handleSubmit(event) {
+    async update() {
+        const response = await fetch('comment/getComments/' +this.props.postID);
+        const body = await response.json();
+        this.setState({ comments: body});
+    }
+
+    async handleSubmit(event) {
+
+        event.preventDefault();
+        this.setState({commentFieldText: "", name: ""});
         //fetch
-        fetch('comment/add', {
+        await fetch('comment/add', {
             method: 'post',
             headers:{
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ pseudonym: this.state.name, content: this.state.commentFieldText, postId: this.props.postID})
         });
-        event.preventDefault();
+        this.update();
     }
 
     handleTextChange(event) {
@@ -50,11 +55,18 @@ class Comments extends Component {
         this.setState( {name: event.target.value});
     }
 
-    likeButton(commentId) {
-        console.log("likebutton " +commentId);
-        fetch('comment/like/' +commentId, {
-            method: 'post'
-        });
+    async likeButton(commentId) {
+        let likesArray = this.state.liked;
+
+        if (!likesArray.includes(commentId)) {
+            await fetch('comment/like/' +commentId, {
+                method: 'post'
+            });
+            likesArray.push(commentId);
+            this.setState({liked: likesArray});
+        }
+
+        this.update();
     }
 
 
@@ -70,10 +82,20 @@ class Comments extends Component {
             <div>
                 <h1>Comments Component</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Leave your comment below</label>
-                    <input type="text" name="comment" onChange={this.handleTextChange} />
-                    <label>Your name :</label>
-                    <input type ="text" name="name" onChange={this.handleNameChange} />
+                    <div>
+                        <label>Leave your comment below</label>
+                        <input
+                            type="text"
+                            name="comment"
+                            value={this.state.commentFieldText}
+                            onChange={this.handleTextChange} />
+                        <label>Your name :</label>
+                        <input
+                            type ="text"
+                            name="name"
+                            value={this.state.name}
+                            onChange={this.handleNameChange} />
+                    </div>
                     <input type="submit" value="Comment" />
                 </form>
                 <br/>
