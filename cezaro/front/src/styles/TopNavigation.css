@@ -15,7 +15,6 @@
 ul.TopNavUL li {
     display: inline;
     text-align: center;
-    background-color: #1c7430;
     padding-left: 3%;
     padding-top: 10px;
     padding-right:  3%;
@@ -23,9 +22,9 @@ ul.TopNavUL li {
 .topButt{
     background-color: lightgray;
     color: black;
-    font: 700 1rem "proxima-nova";
     border: none;
     position: relative;
+    font: 700 1rem 'Charm', cursive;
     -webkit-transition: 0.3s ease-in-out;
     -moz-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
@@ -34,5 +33,5 @@ ul.TopNavUL li {
     cursor: pointer;
 }
 .topButt:hover{
-    background-color: lightskyblue;
+    background-color: dimgray;
 }
