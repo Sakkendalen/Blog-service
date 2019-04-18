@@ -80,7 +80,11 @@ class Comments extends Component {
 
                 {this.state.comments.map(comment =>
                     <div key={comment.id}>
-                        <Comment id = {comment.id} datetime = {comment.datetime} pseudonym = {comment.pseudonym} content = {comment.content} />
+                        <Comment
+                            id = {comment.id}
+                            datetime = {comment.datetime}
+                            pseudonym = {comment.pseudonym}
+                            content = {comment.content} />
                         <div onClick={() => this.likeButton(comment.id) }>Like Button</div>
                         <span>likes : {comment.likes}</span>
                         <br/>

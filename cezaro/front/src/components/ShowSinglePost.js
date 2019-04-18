@@ -26,10 +26,14 @@ class ShowSinglePost extends Component {
     }
 
     render() {
-        console.log("LAhteva postin ID : " +this.state.post.id);
         return (
             <div className="ShowSingePostdiv">
-                <Post id = {this.state.post.id} date = {this.state.post.date} title = {this.state.post.title} author = {this.state.post.author} content = {this.state.post.content}/>
+                <Post
+                    id = {this.state.post.id}
+                    date = {this.state.post.date}
+                    title = {this.state.post.title}
+                    author = {this.state.post.author}
+                    content = {this.state.post.content}/>
                 <button onClick={() => this.deletePost() }>Delete</button>
                 <button onClick={() => this.props.modifyPostClick(this.state.post.id)}>Modify</button>
                 <Comments postID={this.props.id}/>

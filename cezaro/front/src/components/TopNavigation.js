@@ -41,8 +41,7 @@ class TopNavigation extends Component {
         <li> <button type="submit" onClick={ () => this.props.onClick( "Browse" ) }>Browse</button> </li>
         <li> <button type="submit" onClick={ () => this.props.onClick( "Search" ) }>Search</button> </li>
         <li> <button type="submit" onClick={ () => this.props.onClick( "Publish" ) }>Publish</button> </li>
-        <li>Delete</li>
-        <li>Modify</li>
+        <li>Login</li>
       </ul>
     </div>
     )

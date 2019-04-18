@@ -58,13 +58,23 @@ class ModifyComponent extends Component {
                 <form onSubmit={this.handleSubmit}>
 
                     <label>Author</label>
-                    <input value={this.state.name} type="text" name="name" onChange={this.handleNameChange} />
+                    <input
+                        value={this.state.name}
+                        type="text"
+                        name="name"
+                        onChange={this.handleNameChange} />
 
                     <label>Title</label>
-                    <input value={this.state.title} type="text" name="title" onChange={this.handleTitleChange} />
+                    <input
+                        value={this.state.title}
+                        type="text"
+                        name="title"
+                        onChange={this.handleTitleChange} />
 
                     <label>
-                        <textarea value={this.state.text} onChange={this.handleTextChange} />
+                        <textarea
+                            value={this.state.text}
+                            onChange={this.handleTextChange} />
                     </label>
                     <input type="submit" value="Submit" />
                 </form>

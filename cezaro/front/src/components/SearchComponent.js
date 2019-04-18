@@ -39,7 +39,9 @@ class SearchComponent extends Component {
                 <form onSubmit={this.handleSubmit}>
 
                     <label>Search</label>
-                    <input type="text" value={this.state.searchValue} name="name" onChange={this.handleChange} />
+                    <input
+                        type="text" value={this.state.searchValue}
+                        name="name" onChange={this.handleChange} />
 
                     <input type="submit" value="Submit" />
                 </form>

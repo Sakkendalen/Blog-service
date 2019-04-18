@@ -33,4 +33,9 @@ public class CommentController {
     public void delComment(@PathVariable long id){
         comRepo.deleteById(id);
     }
+
+    @RequestMapping(value = "/like/{commentID}")
+    public void addLike(@PathVariable long commentID){
+        comRepo.findById(commentID);
+    }
 }
