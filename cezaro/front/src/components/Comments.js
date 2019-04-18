@@ -55,6 +55,16 @@ class Comments extends Component {
         this.setState( {name: event.target.value});
     }
 
+    async deletePost(postID) {
+        await fetch('comment/delete/' +postID, {
+            method: 'post',
+            headers:{
+                "Content-Type": "application/json"
+            }
+        });
+        this.update();
+    }
+
     async likeButton(commentId) {
         let likesArray = this.state.liked;
 
@@ -109,6 +119,10 @@ class Comments extends Component {
                             content = {comment.content} />
                         <div onClick={() => this.likeButton(comment.id) }>Like Button</div>
                         <span>likes : {comment.likes}</span>
+                        {this.props.userType
+                            ? <button onClick={() => this.deletePost(comment.id)}>Delete Post</button>
+                                : ""
+                        }
                         <br/>
                     </div>
                 )}

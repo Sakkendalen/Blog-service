@@ -1,9 +1,9 @@
 package fi.tuni.cezaro;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "User")
 public class User {
 
     @Id
@@ -16,7 +16,6 @@ public class User {
     private String password;
 
     public User(){
-
     }
 
     public User(String userName, String password) {

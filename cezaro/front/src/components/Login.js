@@ -23,12 +23,34 @@ class Login extends Component{
         this.setState({passwordFieldText: event.target.value});
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
+
+        try {
+            const response = await fetch('/login', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({userName: this.state.usernameFieldText, password: this.state.passwordFieldText})
+            });
+            const body = await response.json();
+
+            if (body.status === 401) {
+                alert("wrong password!");
+            } else if (body.status === 404) {
+                alert("username not found!");
+            }else{
+                let user = true;
+                this.props.setUser(user);
+            }
+        }catch (e) {
+
+        }
+
         //tässä vois tietty kysyä backendistä jotain
         //alert("Username : " +this.state.usernameFieldText + " Password : " +this.state.passwordFieldText);
-        let user = true;
-        this.props.setUser(user);
+
     }
 
     render() {

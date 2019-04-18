@@ -34,7 +34,12 @@ class App extends Component {
 
   showSinglePostClick(x) {
     //alert("show single post function from App.js " +x);
-    this.setState( {page: <ShowSinglePost id={x} setMainPage={() => this.setMainPage()} modifyPostClick={(a) => this.modifyPostClick(a)}/>})
+    this.setState( {page: <ShowSinglePost
+          id={x}
+          setMainPage={() => this.setMainPage()}
+          modifyPostClick={(a) => this.modifyPostClick(a)}
+          userType={this.state.userType}
+      />})
   }
 
   setMainPage() {

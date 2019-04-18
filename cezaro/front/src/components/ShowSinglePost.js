@@ -34,9 +34,15 @@ class ShowSinglePost extends Component {
                     title = {this.state.post.title}
                     author = {this.state.post.author}
                     content = {this.state.post.content}/>
-                <button onClick={() => this.deletePost() }>Delete</button>
-                <button onClick={() => this.props.modifyPostClick(this.state.post.id)}>Modify</button>
-                <Comments postID={this.props.id}/>
+                {this.props.userType
+                    ? <button onClick={() => this.deletePost() }>Delete</button>
+                    : ""
+                }
+                {this.props.userType
+                    ? <button onClick={() => this.props.modifyPostClick(this.state.post.id)}>Modify</button>
+                    : ""
+                }
+                <Comments postID={this.props.id} userType={this.props.userType}/>
             </div>
         );
     }
