@@ -6,6 +6,7 @@ import ShowSinglePost from "./ShowSinglePost";
 import ModifyComponent from "./ModifyComponent";
 import FrontPage from "./FrontPage";
 import Browse from "./Browse";
+import Login from "./Login";
 import '../styles/App.css'
 require('../styles/App.css');
 
@@ -15,7 +16,8 @@ class App extends Component {
   state = {
     isLoading: false,
     posts: [],
-      page: ""
+    page: "",
+    userType: false
   };
 
   componentDidMount() {
@@ -40,6 +42,11 @@ class App extends Component {
       this.setState( { page : <FrontPage/> });
   }
 
+  setUser(userType) {   //"guest" "admin"
+    alert(userType);
+    this.setState({userType: userType});
+  }
+
   topMenuClick(x) {
     if (x === "Search") {
         this.setState({page: <SearchComponent onClick={ (a) => this.showSinglePostClick(a)} /> });
@@ -49,6 +56,9 @@ class App extends Component {
     }
     if (x === "Browse") {
       this.setState({page: <Browse onClick={ (a) => this.showSinglePostClick(a)}/> });
+    }
+    if (x === "Login") {
+      this.setState({page: <Login setUser={(a) => this.setUser(a)}/> });
     }
   }
 
@@ -61,8 +71,12 @@ class App extends Component {
 
     return (
         <div className="App">
-          <TopNavigation onClick={ (a) => this.topMenuClick(a)} />
+          <TopNavigation onClick={ (a) => this.topMenuClick(a)} userType={this.state.userType} />
             {this.state.page}
+            { this.state.userType
+              ? <h1>admin</h1>
+              : <h1>guest</h1>
+            }
         </div>
     );
   }

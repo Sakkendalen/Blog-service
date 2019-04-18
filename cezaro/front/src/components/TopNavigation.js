@@ -39,10 +39,13 @@ class TopNavigation extends Component {
     <div className="TopNavDiv">
       <h1>Ultimate Blog</h1>
       <ul className="TopNavUL">
-        <li> <button class="topButt" type="submit" onClick={ () => this.props.onClick( "Browse" ) }>Browse</button> </li>
-        <li> <button class="topButt" type="submit" onClick={ () => this.props.onClick( "Search" ) }>Search</button> </li>
-        <li> <button class="topButt" type="submit" onClick={ () => this.props.onClick( "Publish" ) }>Publish</button> </li>
-        <li> <button className="topButt">Login</button></li>
+        <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Browse" ) }>Browse</button> </li>
+        <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Search" ) }>Search</button> </li>
+        { this.props.userType
+            ? <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Publish" ) }>Publish</button> </li>
+            : ''
+        }
+        <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Login" ) }>Login</button></li>
       </ul>
     </div>
     )
