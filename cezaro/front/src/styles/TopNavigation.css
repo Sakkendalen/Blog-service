@@ -3,9 +3,13 @@
     position: fixed;
     top: 0px;
     text-align: center;
-    background-color: #c69500;
+    background-color: lightgray;
     padding: 1%;
     z-index: 100;
+}
+
+.h1{
+    color: white;
 }
 
 ul.TopNavUL li {
@@ -13,5 +17,22 @@ ul.TopNavUL li {
     text-align: center;
     background-color: #1c7430;
     padding-left: 3%;
+    padding-top: 10px;
     padding-right:  3%;
+}
+.topButt{
+    background-color: lightgray;
+    color: black;
+    font: 700 1rem "proxima-nova";
+    border: none;
+    position: relative;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    padding: 10px 35px;
+    text-align: center;
+    cursor: pointer;
+}
+.topButt:hover{
+    background-color: lightskyblue;
 }

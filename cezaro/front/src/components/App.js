@@ -6,7 +6,7 @@ import ShowSinglePost from "./ShowSinglePost";
 import ModifyComponent from "./ModifyComponent";
 import FrontPage from "./FrontPage";
 import Browse from "./Browse";
-
+import '../styles/App.css'
 require('../styles/App.css');
 
 
