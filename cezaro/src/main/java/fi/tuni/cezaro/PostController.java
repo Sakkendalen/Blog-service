@@ -33,7 +33,7 @@ public class PostController {
     @GetMapping(value = "/posts")
     public Iterable<Post> findAll() {
 
-        return postRepo.findAll();
+        return postRepo.findAllByOrderByDateDesc();
 
     }
 
