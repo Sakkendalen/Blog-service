@@ -52,38 +52,53 @@ class ComposeComponent extends Component {
     render() {
         return (
             <div className="ComposeComponentDiv">
-                <h1> Compose Component </h1>
-                <h1> Compose Component </h1>
-                <h1> Compose Component </h1>
-                <form onSubmit={this.handleSubmit}>
+                <br/>
+                <h1> Write your essay... </h1>
+                <form onSubmit={this.handleSubmit} >
 
-                    <label>Name</label>
+                    <br/>
+
+                    <label name="composeLabel">Title</label>
+
+                    <br/>
+
                     <input
                         type="text"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.handleNameChange}
-                        required
-                    />
-
-                    <label>Title</label>
-                    <input
-                        type="text"
-                        name="title"
+                        name="composeInput"
                         value={this.state.title}
                         onChange={this.handleTitleChange}
                         required
                     />
 
-                    <label>
-                        Essay:
+                    <br/>
+
                         <textarea
+                            name = "composeTextArea"
+                            rows="30" cols="45"
                             value={this.state.text}
                             onChange={this.handleTextChange}
                             required
                         />
-                    </label>
-                    <input type="submit" value="Submit" />
+                        <br/>
+
+                    <label name="composeLabel">Your name </label>
+
+                    <br/>
+
+                    <input
+                        type="text"
+                        name="composeInput"
+                        value={this.state.name}
+                        onChange={this.handleNameChange}
+                        required
+                    />
+
+                    <br/>
+
+                    <input
+                        name="composeSubmitButton"
+                        type="submit"
+                        value="Submit" />
                 </form>
 
 
