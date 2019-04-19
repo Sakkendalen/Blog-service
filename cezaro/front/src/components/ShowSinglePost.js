@@ -12,12 +12,14 @@ class ShowSinglePost extends Component {
             post: "",
             comments: []
         }
+        this.formattedTime = this.formattedTime.bind(this);
     }
 
     async componentDidMount() {
         const response = await fetch('api/post/' +this.props.id );
-        const body = await response.json();
+        const body = await response.json().then();
         this.setState({ post: body });
+
     }
 
     async deletePost(){
@@ -38,12 +40,20 @@ class ShowSinglePost extends Component {
     }
 
 
+    formattedTime(){
+        if(this.state.post.date !== undefined) {
+            let formatted = new Date(this.state.post.date).toUTCString();
+            console.log(typeof formatted);
+            return formatted;
+        }
+    }
+
     render() {
         return (
             <div className="ShowSingePostdiv">
                 <Post
                     id = {this.state.post.id}
-                    date = {this.state.post.date}
+                    date = {this.formattedTime()}
                     title = {this.state.post.title}
                     author = {this.state.post.author}
                     content = {this.state.post.content}/>

@@ -150,4 +150,36 @@ public class PostController {
         }
 
     }
+    @RequestMapping(value = "/prevpost/{id}")
+    public Post prevPost(@PathVariable long id) {
+
+        if(postRepo.findById(id).isPresent()) {
+            Post fetch = postRepo.findById(id).get();
+            if(postRepo.findByAuthorAndDateBefore(fetch.getAuthor(), fetch.getDate()).isPresent()) {
+                Post prev = postRepo.findByAuthorAndDateBefore(fetch.getAuthor(), fetch.getDate()).get();
+                System.out.println(fetch);
+                System.out.println(prev);
+                return prev;
+            }
+            return fetch;
+        }
+        return null;
+    }
+
+    @RequestMapping(value = "/nextpost/{id}")
+    public Post nextPost(@PathVariable long id){
+
+        if(postRepo.findById(id).isPresent()) {
+            Post fetch = postRepo.findById(id).get();
+            if(postRepo.findByAuthorAndDateAfter(fetch.getAuthor(), fetch.getDate()).isPresent()) {
+                Post next = postRepo.findByAuthorAndDateAfter(fetch.getAuthor(), fetch.getDate()).get();
+                System.out.println(fetch);
+                System.out.println(next);
+                return next;
+            }
+            return fetch;
+        }
+        return null;
+
+    }
 }
