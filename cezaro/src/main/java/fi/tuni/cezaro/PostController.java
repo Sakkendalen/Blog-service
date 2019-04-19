@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.*;
 
+import static org.apache.logging.log4j.ThreadContext.isEmpty;
+
 @RestController
 @RequestMapping("/api")
 public class PostController {
@@ -150,16 +152,17 @@ public class PostController {
         }
 
     }
+
     @RequestMapping(value = "/prevpost/{id}")
     public Post prevPost(@PathVariable long id) {
 
         if(postRepo.findById(id).isPresent()) {
             Post fetch = postRepo.findById(id).get();
-            if(postRepo.findByAuthorAndDateBefore(fetch.getAuthor(), fetch.getDate()).isPresent()) {
-                Post prev = postRepo.findByAuthorAndDateBefore(fetch.getAuthor(), fetch.getDate()).get();
+            List<Post> prev = postRepo.findAllByAuthorAndDateBeforeOrderByDateDesc(fetch.getAuthor(), fetch.getDate());
+            if(!prev.isEmpty()) {
                 System.out.println(fetch);
                 System.out.println(prev);
-                return prev;
+                return prev.get(0);
             }
             return fetch;
         }
@@ -171,15 +174,14 @@ public class PostController {
 
         if(postRepo.findById(id).isPresent()) {
             Post fetch = postRepo.findById(id).get();
-            if(postRepo.findByAuthorAndDateAfter(fetch.getAuthor(), fetch.getDate()).isPresent()) {
-                Post next = postRepo.findByAuthorAndDateAfter(fetch.getAuthor(), fetch.getDate()).get();
+            List<Post> next = postRepo.findAllByAuthorAndDateAfterOrderByDateAsc(fetch.getAuthor(), fetch.getDate());
+            if(!next.isEmpty()) {
                 System.out.println(fetch);
                 System.out.println(next);
-                return next;
+                return next.get(0);
             }
             return fetch;
         }
         return null;
-
     }
 }
