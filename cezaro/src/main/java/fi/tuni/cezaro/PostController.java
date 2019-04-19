@@ -152,6 +152,7 @@ public class PostController {
         }
 
     }
+
     @RequestMapping(value = "/prevpost/{id}")
     public Post prevPost(@PathVariable long id) {
 
@@ -182,6 +183,5 @@ public class PostController {
             return fetch;
         }
         return null;
-
     }
 }

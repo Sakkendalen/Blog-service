@@ -53,7 +53,7 @@ class ShowSinglePost extends Component {
             <div className="ShowSingePostdiv">
                 <Post
                     id = {this.state.post.id}
-                    date = {this.formattedTime()}
+                    date = {this.props.formatTime(this.state.post.date)}
                     title = {this.state.post.title}
                     author = {this.state.post.author}
                     content = {this.state.post.content}/>

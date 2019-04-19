@@ -32,7 +32,7 @@ class Browse extends Component {
                 <div key={post.id} onClick={ () => this.props.onClick( post.id ) }>
                     <Post
                         id = {post.id}
-                        date = {post.date}
+                        date = {this.props.formatTime(post.date)}
                         author = {post.author}
                         title = {post.title} />
 

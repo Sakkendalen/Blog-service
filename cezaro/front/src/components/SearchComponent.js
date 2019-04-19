@@ -50,7 +50,7 @@ class SearchComponent extends Component {
 
                 {this.state.posts.map(post =>
                     <div key={post.id} onClick={ () => this.props.onClick( post.id ) }>
-                        <Post id = {post.id} date = {post.date} author = {post.author} title = {post.title}/>
+                        <Post id = {post.id} date = {this.props.formatTime(post.date)} author = {post.author} title = {post.title}/>
                         <br></br>
                     </div>
                 )}
