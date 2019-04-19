@@ -25,6 +25,19 @@ class ShowSinglePost extends Component {
         this.props.setMainPage();
     }
 
+    async nextPost() {
+        const response = await fetch('api/nextpost/' +this.state.post.id);
+        const body = await response.json();
+        this.setState({ post: body });
+    }
+
+    async prevPost() {
+        const response = await fetch('api/prevpost/' +this.state.post.id);
+        const body = await response.json();
+        this.setState({ post: body });
+    }
+
+
     render() {
         return (
             <div className="ShowSingePostdiv">
@@ -34,6 +47,7 @@ class ShowSinglePost extends Component {
                     title = {this.state.post.title}
                     author = {this.state.post.author}
                     content = {this.state.post.content}/>
+                <button onClick={() => this.prevPost() }>Previous Post</button>
                 {this.props.userType
                     ? <button onClick={() => this.deletePost() }>Delete</button>
                     : ""
@@ -42,6 +56,10 @@ class ShowSinglePost extends Component {
                     ? <button onClick={() => this.props.modifyPostClick(this.state.post.id)}>Modify</button>
                     : ""
                 }
+                <button onClick={() => this.nextPost() }>Next Post</button>
+
+
+
                 <Comments postID={this.props.id} userType={this.props.userType}/>
             </div>
         );
