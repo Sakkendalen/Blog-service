@@ -1,6 +1,6 @@
 .ShowSingePostdiv {
     padding-top: 20vh;
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
@@ -14,13 +14,21 @@
     border-width: 1px;
 }
 
+.contentP{
+    text-align: left;
+    margin: 3%;
+    font: 500 1.0rem "sans-serif";
+}
+.authorP, .titleP{
+    font-size: larger;
+}
+
 .date{
     margin-top: 1%;
 }
 
-.comContent{
-    background-color: lightgray;
-
+.comAuth{
+    font-size: large;
 }
 
 .submitCommentButton {
@@ -58,10 +66,9 @@
     outline:none;
 }
 
-@media all and (max-width: 640px) {
-    .ShowSingePostdiv {
-        padding-top: 32vh;
-        width: 70%;
+@media only screen and (max-aspect-ratio: 1/1) {
+    .ShowSingePostdiv{
+        width: 100%;
         margin: auto;
     }
 }

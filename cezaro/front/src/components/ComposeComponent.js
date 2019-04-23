@@ -53,7 +53,7 @@ class ComposeComponent extends Component {
         if(!this.state.published) {
             return (
                 <div className="ComposeComponentDiv">
-                    <h1> Write your essay... </h1>
+                    <h1> Write your post </h1>
                     <form onSubmit={this.handleSubmit}>
 
                         <br/>

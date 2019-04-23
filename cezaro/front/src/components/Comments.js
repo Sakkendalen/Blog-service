@@ -94,7 +94,7 @@ class Comments extends Component {
     render() {
         return (
             <div>
-                <h1>Comments section</h1>
+                <h1>Comments</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Leave your comment below</label>

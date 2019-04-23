@@ -37,13 +37,13 @@ ul.TopNavUL li {
     background-color: dimgray;
 }
 
-@media all and (max-width: 640px) {
+@media only screen and (max-aspect-ratio: 1/1) {
     .topButt {
         position: relative;
-        font: 700 0.5rem 'Charm', cursive;
-        padding: 5px 17px;
+        padding: 0px 0px;
         text-align: center;
         cursor: pointer;
+        font-size: x-small;
     }
     .TopNavDiv{
         width: 100%;

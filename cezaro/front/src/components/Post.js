@@ -19,19 +19,17 @@ class Post extends Component {
             return (
             <div className="post">
                 <p>Date: {this.props.date}</p>
-                <p>Author: {this.props.author}</p>
-                <p>Title: {this.props.title}</p>
-                <br></br>
+                <p className="authorP">Author: {this.props.author}</p>
+                <p className="titleP">Title: {this.props.title}</p>
             </div>
             )
         }
         return (
             <div className="post">
                 <p>Date: {this.props.date}</p>
-                <p>Author: {this.props.author}</p>
-                <p>Title: {this.props.title}</p>
-                <p>Content: {this.props.content}</p>
-                <br></br>
+                <p className="authorP">Author: {this.props.author}</p>
+                <p className="titleP">Title: {this.props.title}</p>
+                <p className="contentP">{this.props.content}</p>
             </div>
         );
     }
