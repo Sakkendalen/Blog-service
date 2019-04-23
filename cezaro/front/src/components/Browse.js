@@ -22,7 +22,11 @@ class Browse extends Component {
     render(){
 
         if(this.state.isLoading){
-            return <p>Loading...</p>;
+            return (
+                <div className="Browsediv">
+                    <p>Loading...</p>
+                </div>
+            );
         }
 
         return(
@@ -34,8 +38,8 @@ class Browse extends Component {
                         id = {post.id}
                         date = {this.props.formatTime(post.date)}
                         author = {post.author}
-                        title = {post.title} />
-
+                        title = {post.title}
+                    />
                     <br></br>
                 </div>
             )}

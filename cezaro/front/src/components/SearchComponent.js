@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Browse from "./Browse";
 import Post from './Post';
 
 require('../styles/SearchComponent.css');

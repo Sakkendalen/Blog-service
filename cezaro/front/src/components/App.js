@@ -61,7 +61,6 @@ class App extends Component {
   formatTime(e){
     if(e !== undefined) {
       let formatted = new Date(e).toUTCString();
-      console.log(typeof formatted);
       return formatted;
     }
   }
@@ -77,7 +76,7 @@ class App extends Component {
       this.setState({page: <Browse onClick={ (a) => this.showSinglePostClick(a)} formatTime={(e) => this.formatTime(e)}/> });
     }
     if (x === "Login") {
-      this.setState({page: <Login setUser={(a) => this.setUser(a)}/> });
+      this.setState({page: <Login setUser={(a) => this.setUser(a)} setMainPage={() => this.setMainPage()}/> });
     }
     if (x === "Logout") {
       this.setState({page: <FrontPage/>, userType: false});

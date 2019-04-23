@@ -1,9 +1,9 @@
 .ShowSingePostdiv {
-    background-color: #80bdff;
     padding-top: 20vh;
     width: 70%;
     margin: auto;
 }
+
 
 .oneComment {
     margin-top: 1%;
@@ -14,8 +14,17 @@
     border-width: 1px;
 }
 
+.date{
+    margin-top: 1%;
+}
+
+.comContent{
+    background-color: lightgray;
+
+}
+
 .submitCommentButton {
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 .likeButton {
@@ -25,6 +34,7 @@
     cursor:pointer;
     overflow: hidden;
     outline:none;
+    margin-bottom: 1%;
 }
 
 .ControlButtons {

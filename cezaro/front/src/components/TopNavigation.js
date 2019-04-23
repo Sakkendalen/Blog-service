@@ -21,17 +21,13 @@ class TopNavigation extends Component {
 
   setBarState(a) {
     this.setState({ show: a })
-    console.log("this ");
   }
 
   render() {
-    console.log(this.state.show)
     let a = <SearchComponent/>;
     if (this.state.show === "SearchComponent") {
-      console.log("eka");
       a = <SearchComponent/>;
     } else {
-      console.log("toka");
       a = <ComposeComponent/>;
     }
 

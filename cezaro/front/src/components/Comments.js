@@ -6,7 +6,6 @@ class Comments extends Component {
 
     constructor(props) {
         super(props);
-        console.log("Kun Comments constructor  ID :" +this.props.postID);
         this.state = {
             postID: this.props.postID,
             commentFieldText: "",
@@ -134,7 +133,7 @@ class Comments extends Component {
                             <div>Total likes : {comment.likes}</div>
                         <button className="likeButton" onClick={() => this.likeButton(comment.id) }>Like this comment</button>
                         {this.props.userType
-                            ? <button onClick={() => this.deletePost(comment.id)}>Delete Post</button>
+                            ? <button onClick={() => this.deletePost(comment.id)}>Delete Comment</button>
                                 : ""
                         }
                         <br/>

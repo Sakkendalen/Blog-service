@@ -9,7 +9,8 @@ class ComposeComponent extends Component {
         this.state = {
             text: 'Please write an essay about your favorite DOM element.',
             name: "",
-            title: ""
+            title: "",
+            published: false
         };
 
         this.handleTextChange = this.handleTextChange.bind(this);
@@ -19,12 +20,11 @@ class ComposeComponent extends Component {
     }
 
     componentDidMount() {
-
+        this.setState({published: false});
     }
 
     handleSubmit(event) {
 
-        //fetch('api/add', { method: 'post', body: ""+ this.state.name, title: "" +this.state.title + this.state.text});
         fetch('api/add', {
             method: 'POST',
             headers:{
@@ -32,7 +32,7 @@ class ComposeComponent extends Component {
             },
             body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text })
         });
-        this.setState({text: "", name: "", title: ""});
+        this.setState({published: true});
         event.preventDefault();
         //this.props.setMainPage();
     }
@@ -50,29 +50,30 @@ class ComposeComponent extends Component {
     }
 
     render() {
-        return (
-            <div className="ComposeComponentDiv">
-                <h1> Write your essay... </h1>
-                <form onSubmit={this.handleSubmit} >
+        if(!this.state.published) {
+            return (
+                <div className="ComposeComponentDiv">
+                    <h1> Write your essay... </h1>
+                    <form onSubmit={this.handleSubmit}>
 
-                    <br/>
+                        <br/>
 
-                    <label name="composeLabel">Title</label>
+                        <label name="composeLabel">Title</label>
 
-                    <br/>
+                        <br/>
 
-                    <input
-                        type="text"
-                        name="composeInput"
-                        value={this.state.title}
-                        onChange={this.handleTitleChange}
-                        required
-                    />
+                        <input
+                            type="text"
+                            name="composeInput"
+                            value={this.state.title}
+                            onChange={this.handleTitleChange}
+                            required
+                        />
 
-                    <br/>
+                        <br/>
 
                         <textarea
-                            name = "composeTextArea"
+                            name="composeTextArea"
                             rows="30" cols="45"
                             value={this.state.text}
                             onChange={this.handleTextChange}
@@ -80,29 +81,37 @@ class ComposeComponent extends Component {
                         />
                         <br/>
 
-                    <label name="composeLabel">Your name </label>
+                        <label name="composeLabel">Your name </label>
 
-                    <br/>
+                        <br/>
 
-                    <input
-                        type="text"
-                        name="composeInput"
-                        value={this.state.name}
-                        onChange={this.handleNameChange}
-                        required
-                    />
+                        <input
+                            type="text"
+                            name="composeInput"
+                            value={this.state.name}
+                            onChange={this.handleNameChange}
+                            required
+                        />
 
-                    <br/>
+                        <br/>
 
-                    <input
-                        name="composeSubmitButton"
-                        type="submit"
-                        value="Submit" />
-                </form>
+                        <input
+                            name="composeSubmitButton"
+                            type="submit"
+                            value="Submit"/>
+                    </form>
 
 
-            </div>
-        )
+                </div>
+            )
+        }
+        else{
+            return (
+                <div className="ComposeComponentDiv">
+                    <h1> Your post has been published</h1>
+                </div>
+            );
+        }
     }
 }
 

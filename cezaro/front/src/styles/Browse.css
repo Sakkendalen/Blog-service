@@ -12,8 +12,7 @@
 
 @media all and (max-width: 640px) {
     .Browsediv {
-        padding-top: 32vh;
-        width: 70%;
+        padding-top: 20vh;
         margin: auto;
     }
 }

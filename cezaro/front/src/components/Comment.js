@@ -14,8 +14,9 @@ class Comment extends Component {
 
         return (
             <div className="comment">
-                <p>Käyttäjä {this.props.pseudonym} kommentoi {this.props.datetime}</p>
-                <p>"{this.props.content}"</p>
+                <p className="date">{this.props.datetime}</p>
+                <p>Käyttäjä {this.props.pseudonym} kommentoi:</p>
+                <p className="comContent">"{this.props.content}"</p>
                 <br/>
             </div>
         );

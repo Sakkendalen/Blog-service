@@ -45,6 +45,7 @@ class Login extends Component{
             }else{
                 let user = true;
                 this.props.setUser(user);
+                this.props.setMainPage();
             }
         }catch (e) {
 

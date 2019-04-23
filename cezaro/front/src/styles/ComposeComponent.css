@@ -13,6 +13,7 @@
 textarea[name=composeTextArea] {
     margin-top: 2%;
     margin-bottom: 2%;
+    width: 70%;
     resize: none;
 }
 
@@ -30,7 +31,12 @@ input[name=composeSubmitButton] {
 
 @media only screen and (max-aspect-ratio: 1/1) {
     .ComposeComponentDiv{
-        padding-top: 25vh;
         width: 100%;
+    }
+}
+@media all and (max-width: 640px) {
+    .ComposeComponentDiv {
+        padding-top: 32vh;
+        margin: auto;
     }
 }

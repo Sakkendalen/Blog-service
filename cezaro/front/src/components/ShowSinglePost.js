@@ -46,7 +46,6 @@ class ShowSinglePost extends Component {
     formattedTime(){
         if(this.state.post.date !== undefined) {
             let formatted = new Date(this.state.post.date).toUTCString();
-            console.log(typeof formatted);
             return formatted;
         }
     }
