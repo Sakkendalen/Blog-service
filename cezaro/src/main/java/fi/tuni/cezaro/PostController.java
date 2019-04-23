@@ -106,13 +106,15 @@ public class PostController {
 
         if(postRepo.findById(id).isPresent()) {
             Post fetch = postRepo.findById(id).get();
-            List<Post> prev = postRepo.findAllByAuthorAndDateBeforeOrderByDateDesc(fetch.getAuthor(), fetch.getDate());
+            List<Post> prev = postRepo.findAllByDateBeforeOrderByDateDesc(fetch.getDate());
             if(!prev.isEmpty()) {
                 System.out.println(fetch);
                 System.out.println(prev);
                 return prev.get(0);
+            } else {
+                List<Post> first = postRepo.findAllByOrderByDateDesc();
+                return first.get(0);
             }
-            return fetch;
         }
         return null;
     }
@@ -121,13 +123,15 @@ public class PostController {
     public Post nextPost(@PathVariable long id){
         if(postRepo.findById(id).isPresent()) {
             Post fetch = postRepo.findById(id).get();
-            List<Post> next = postRepo.findAllByAuthorAndDateAfterOrderByDateAsc(fetch.getAuthor(), fetch.getDate());
+            List<Post> next = postRepo.findAllByDateAfterOrderByDateAsc(fetch.getDate());
             if(!next.isEmpty()) {
                 System.out.println(fetch);
                 System.out.println(next);
                 return next.get(0);
+            } else {
+                List<Post> first = postRepo.findAllByOrderByDateAsc();
+                return first.get(0);
             }
-            return fetch;
         }
         return null;
     }

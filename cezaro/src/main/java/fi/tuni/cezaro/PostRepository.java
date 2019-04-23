@@ -11,12 +11,13 @@ public interface PostRepository extends CrudRepository<Post, Long> {
 
     Optional<Post> findByAuthorAndDateBefore(String author, LocalDateTime date);
     Optional<Post> findByAuthorAndDateAfter(String author, LocalDateTime date);
-    List<Post> findAllByAuthorAndDateBeforeOrderByDateDesc(String author, LocalDateTime date);
-    List<Post> findAllByAuthorAndDateAfterOrderByDateAsc(String author, LocalDateTime date);
+    List<Post> findAllByDateBeforeOrderByDateDesc(LocalDateTime date);
+    List<Post> findAllByDateAfterOrderByDateAsc(LocalDateTime date);
     List<Post> findByAuthorOrderByDateDesc(String author);
     List<Post> findByAuthorContainingIgnoreCase(String author);
     List<Post> findByTitleContainingIgnoreCase(String title);
     List<Post> findByContentContainingIgnoreCase(String variable);
     List<Post> findAllByOrderByDateDesc();
+    List<Post> findAllByOrderByDateAsc();
 
 }

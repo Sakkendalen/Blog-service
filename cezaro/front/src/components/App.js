@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cookies from 'js-cookie';
 import TopNavigation from './TopNavigation';
 import ComposeComponent from "./ComposeComponent";
 import SearchComponent from "./SearchComponent";
@@ -7,7 +8,10 @@ import ModifyComponent from "./ModifyComponent";
 import FrontPage from "./FrontPage";
 import Browse from "./Browse";
 import Login from "./Login";
+
+
 import '../styles/App.css'
+
 require('../styles/App.css');
 
 
@@ -17,7 +21,7 @@ class App extends Component {
     isLoading: false,
     posts: [],
     page: "",
-    userType: false
+    userType: Cookies.get('user')
   };
 
   componentDidMount() {
@@ -51,6 +55,7 @@ class App extends Component {
   setUser(userType) {   //"guest" "admin"
     alert(userType);
     this.setState({userType: userType});
+    Cookies.set('user', userType, { expires: 0.02 });
   }
 
   formatTime(e){
@@ -76,6 +81,7 @@ class App extends Component {
     }
     if (x === "Logout") {
       this.setState({page: <FrontPage/>, userType: false});
+      Cookies.remove('user');
     }
   }
 
