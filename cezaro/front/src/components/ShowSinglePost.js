@@ -57,18 +57,16 @@ class ShowSinglePost extends Component {
                     title = {this.state.post.title}
                     author = {this.state.post.author}
                     content = {this.state.post.content}/>
-                <button onClick={() => this.prevPost() }>Previous Post</button>
+                <button className="ControlButtons" onClick={() => this.prevPost() }>Previous Post</button>
                 {this.props.userType
-                    ? <button onClick={() => this.deletePost() }>Delete</button>
+                    ? <button className="ControlButtons" onClick={() => this.deletePost() }>Delete</button>
                     : ""
                 }
                 {this.props.userType
-                    ? <button onClick={() => this.props.modifyPostClick(this.state.post.id)}>Modify</button>
+                    ? <button className="ControlButtons" onClick={() => this.props.modifyPostClick(this.state.post.id)}>Modify</button>
                     : ""
                 }
-                <button onClick={() => this.nextPost() }>Next Post</button>
-
-
+                <button className="ControlButtons" onClick={() => this.nextPost() }>Next Post</button>
 
                 <Comments postID={this.props.id} userType={this.props.userType}/>
             </div>

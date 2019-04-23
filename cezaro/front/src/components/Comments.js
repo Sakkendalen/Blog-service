@@ -87,13 +87,13 @@ class Comments extends Component {
     )}*/
 
     render() {
-        console.log("ID kun commentS render alkaa : " +this.state.postID);
         return (
             <div>
-                <h1>Comments Component</h1>
+                <h1>Comments section</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Leave your comment below</label>
+                        <br/>
                         <input
                             type="text"
                             name="comment"
@@ -101,7 +101,9 @@ class Comments extends Component {
                             onChange={this.handleTextChange}
                             required
                             />
+                            <br/>
                         <label>Your name :</label>
+                        <br/>
                         <input
                             type ="text"
                             name="name"
@@ -109,20 +111,21 @@ class Comments extends Component {
                             onChange={this.handleNameChange}
                             required
                         />
+                        <br/>
                     </div>
-                    <input type="submit" value="Comment" />
+                    <input className="submitCommentButton" type="submit" value="Comment" />
                 </form>
                 <br/>
 
                 {this.state.comments.map(comment =>
-                    <div key={comment.id}>
+                    <div className ="oneComment" key={comment.id}>
                         <Comment
                             id = {comment.id}
                             datetime = {comment.datetime}
                             pseudonym = {comment.pseudonym}
                             content = {comment.content} />
-                        <div onClick={() => this.likeButton(comment.id) }>Like Button</div>
-                        <span>likes : {comment.likes}</span>
+                            <div>likes : {comment.likes}</div>
+                        <button className="likeButton" onClick={() => this.likeButton(comment.id) }>Like Button</button>
                         {this.props.userType
                             ? <button onClick={() => this.deletePost(comment.id)}>Delete Post</button>
                                 : ""

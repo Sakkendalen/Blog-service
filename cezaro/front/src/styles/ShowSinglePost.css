@@ -5,6 +5,40 @@
     margin: auto;
 }
 
+.oneComment {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.submitCommentButton {
+    margin-top: 2%;
+}
+
+.likeButton {
+    font-size: large;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.ControlButtons {
+    margin: 3%;
+    font-size: large;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
 @media all and (max-width: 640px) {
     .ShowSingePostdiv {
         padding-top: 32vh;
