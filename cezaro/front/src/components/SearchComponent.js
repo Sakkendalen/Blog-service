@@ -45,6 +45,7 @@ class SearchComponent extends Component {
 
                     <input type="submit" value="search" />
                 </form>
+                <br></br>
 
                 {this.state.posts.map(post =>
                     <div key={post.id} onClick={ () => this.props.onClick( post.id ) }>
