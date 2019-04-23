@@ -8,9 +8,11 @@ class ShowSinglePost extends Component {
 
     constructor(props){
         super(props)
+        this.commentsComponent = React.createRef();
         this.state = {
             post: "",
-            comments: []
+            comments: [],
+            id: this.props.id
         }
         this.formattedTime = this.formattedTime.bind(this);
     }
@@ -18,8 +20,7 @@ class ShowSinglePost extends Component {
     async componentDidMount() {
         const response = await fetch('api/post/' +this.props.id );
         const body = await response.json().then();
-        this.setState({ post: body });
-
+        this.setState({ post: body, id: this.props.id });
     }
 
     async deletePost(){
@@ -30,13 +31,15 @@ class ShowSinglePost extends Component {
     async nextPost() {
         const response = await fetch('api/nextpost/' +this.state.post.id);
         const body = await response.json();
-        this.setState({ post: body });
+        this.setState({ post: body, id: this.state.post.id });
+        this.commentsComponent.current.updateWithId(this.state.post.id);
     }
 
     async prevPost() {
         const response = await fetch('api/prevpost/' +this.state.post.id);
         const body = await response.json();
-        this.setState({ post: body });
+        this.setState({ post: body, id: this.state.post.id });
+        this.commentsComponent.current.updateWithId(this.state.post.id);
     }
 
 
@@ -68,7 +71,7 @@ class ShowSinglePost extends Component {
                 }
                 <button className="ControlButtons" onClick={() => this.nextPost() }>Next Post</button>
 
-                <Comments postID={this.props.id} userType={this.props.userType}/>
+                <Comments ref={this.commentsComponent} postID={this.state.id} userType={this.props.userType}/>
             </div>
         );
     }

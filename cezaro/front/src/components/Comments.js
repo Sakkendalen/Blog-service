@@ -21,20 +21,27 @@ class Comments extends Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('comment/getComments/' +this.props.postID);
+        const response = await fetch('comment/getComments/' +this.state.postID);
         const body = await response.json();
         this.setState({ comments: body});
     }
 
     async update() {
-        const response = await fetch('comment/getComments/' +this.props.postID);
+        const response = await fetch('comment/getComments/' +this.state.postID);
         const body = await response.json();
-        this.setState({ comments: body});
+        this.setState({ comments: body, postID: this.props.postID});
+    }
+
+    async updateWithId(x) {
+        const response = await fetch('comment/getComments/' +x);
+        const body = await response.json();
+        this.setState({ comments: body, postID: x});
     }
 
     async handleSubmit(event) {
 
         event.preventDefault();
+        alert("tallennetaan id:lle : " +this.state.postID);
         this.setState({commentFieldText: "", name: ""});
         //fetch
         await fetch('comment/add', {
@@ -42,7 +49,7 @@ class Comments extends Component {
             headers:{
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ pseudonym: this.state.name, content: this.state.commentFieldText, postId: this.props.postID})
+            body: JSON.stringify({ pseudonym: this.state.name, content: this.state.commentFieldText, postId: this.state.postID})
         });
         this.update();
     }
@@ -124,8 +131,8 @@ class Comments extends Component {
                             datetime = {comment.datetime}
                             pseudonym = {comment.pseudonym}
                             content = {comment.content} />
-                            <div>likes : {comment.likes}</div>
-                        <button className="likeButton" onClick={() => this.likeButton(comment.id) }>Like Button</button>
+                            <div>Total likes : {comment.likes}</div>
+                        <button className="likeButton" onClick={() => this.likeButton(comment.id) }>Like this comment</button>
                         {this.props.userType
                             ? <button onClick={() => this.deletePost(comment.id)}>Delete Post</button>
                                 : ""
