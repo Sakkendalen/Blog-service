@@ -9,8 +9,6 @@ import java.util.Optional;
 
 public interface PostRepository extends CrudRepository<Post, Long> {
 
-    //void findAllById(Optional<Post> byId);
-
     Optional<Post> findByAuthorAndDateBefore(String author, LocalDateTime date);
     Optional<Post> findByAuthorAndDateAfter(String author, LocalDateTime date);
     List<Post> findAllByAuthorAndDateBeforeOrderByDateDesc(String author, LocalDateTime date);

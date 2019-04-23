@@ -1,21 +1,10 @@
 package fi.tuni.cezaro;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import javafx.geometry.Pos;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.PostConstruct;
-import java.io.IOException;
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.*;
-
-import static org.apache.logging.log4j.ThreadContext.isEmpty;
 
 @RestController
 @RequestMapping("/api")
@@ -87,38 +76,13 @@ public class PostController {
     }
 
     @RequestMapping(value = "/add")
-    //public void addPost(@RequestBody String post){
     public void addPost(@RequestBody Post post) {
 
-        /*
-        ObjectMapper mapper = new ObjectMapper();
-        String author = "";
-        String title = "";
-        String content = "";
-
-        try {
-            JsonNode actualObj = mapper.readTree(post);
-            author = actualObj.get("author").textValue();
-            title = actualObj.get("title").textValue();
-            content = actualObj.get("content").textValue();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } */
 
         System.out.println("Author : " +post.getAuthor() +" Title : " +post.getTitle() +" Content : " + post.getContent());
 
         postRepo.save(new Post(LocalDateTime.now().withNano(0), post.getAuthor(), post.getTitle(), post.getContent()));
-        //postRepo.save(new Post(LocalDateTime.now(), "mikkooooo", "totsoisioa", "aklsdlakj"));
-        //postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 30, 20), author, title, content));
     }
-
-    /*
-    @RequestMapping(value = "/search/{variable}", method= RequestMethod.GET)
-    public Iterable<Post> search(@PathVariable String variable) {
-        System.out.println("variable : " +variable);
-        return postRepo.findAll();
-    }
-    */
 
     @RequestMapping(value = "/update/{id}")
     public void updatePost(@PathVariable long id,
@@ -129,23 +93,6 @@ public class PostController {
 
             System.out.println("Jutut : " +post.getAuthor() +post.getTitle() +post.getContent());
 
-            /*ObjectMapper mapper = new ObjectMapper();
-            String author = "";
-            String title = "";
-            String content = "";
-
-            try {
-                JsonNode actualObj = mapper.readTree(post);
-                author = actualObj.get("author").textValue();
-                title = actualObj.get("title").textValue();
-                content = actualObj.get("content").textValue();
-                alteredPost.setAuthor(author);
-                alteredPost.setTitle(title);
-                alteredPost.setContent(content);
-                postRepo.save(alteredPost);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } */
             alteredPost.setAuthor(post.getAuthor());
             alteredPost.setTitle(post.getTitle());
             alteredPost.setContent(post.getContent());
@@ -172,7 +119,6 @@ public class PostController {
 
     @RequestMapping(value = "/nextpost/{id}")
     public Post nextPost(@PathVariable long id){
-
         if(postRepo.findById(id).isPresent()) {
             Post fetch = postRepo.findById(id).get();
             List<Post> next = postRepo.findAllByAuthorAndDateAfterOrderByDateAsc(fetch.getAuthor(), fetch.getDate());

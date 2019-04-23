@@ -8,11 +8,6 @@ class FrontPage extends Component{
         return (
             <div className="frondpagediv">
                 <h1>Cezaro Blog Front page</h1>
-                <h1>Cezaro Blog Front page</h1>
-                <h1>Cezaro Blog Front page</h1>
-                <h1>Cezaro Blog Front page</h1>
-                <h1>Cezaro Blog Front page</h1>
-                <h1>Cezaro Blog Front page</h1>
             </div>
         );
     }

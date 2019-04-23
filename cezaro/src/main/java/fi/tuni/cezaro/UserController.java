@@ -4,7 +4,6 @@ import fi.tuni.cezaro.exception.CredentialAcceptedExcepion;
 import fi.tuni.cezaro.exception.InvalidCredentialsException;
 import fi.tuni.cezaro.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
