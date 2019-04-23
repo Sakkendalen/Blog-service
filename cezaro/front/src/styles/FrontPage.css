@@ -1,13 +1,5 @@
 .frondpagediv {
-    padding-top: 20vh;
+    padding-top: 22vh;
     width: 70%;
     margin: auto;
-}
-
-@media all and (max-width: 640px) {
-    .frondpagediv {
-        padding-top: 32vh;
-        width: 70%;
-        margin: auto;
-    }
 }
