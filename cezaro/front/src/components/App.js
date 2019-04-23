@@ -90,10 +90,6 @@ class App extends Component {
         <div className="App">
           <TopNavigation onClick={ (a) => this.topMenuClick(a)} userType={this.state.userType} />
             {this.state.page}
-            { this.state.userType
-              ? <h1>admin</h1>
-              : <h1>guest</h1>
-            }
         </div>
     );
   }

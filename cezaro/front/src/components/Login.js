@@ -58,16 +58,15 @@ class Login extends Component{
     render() {
         return(
             <div className="logdinDiv">
-                <h1>LOgin</h1>
-                <h1>LOgin</h1>
-                <h1>LOgin</h1>
-                <h1>LOgin</h1>
-                <h1>LOgin</h1>
-                <h1>LOgin</h1>
+
+                <br/>
+                <h1>Login</h1>
 
                 <form onSubmit={this.handleSubmit}>
                     <div>
+                        <br/>
                         <label>Username</label>
+                        <br/>
                         <input
                             type="text"
                             name="username"
@@ -75,7 +74,11 @@ class Login extends Component{
                             onChange={this.handleUsernameChange}
                             required
                         />
+
+                        <br/>
+                        <br/>
                         <label>Password</label>
+                        <br/>
                         <input
                             type ="password"
                             name="password"
@@ -84,6 +87,7 @@ class Login extends Component{
                             required
                         />
                     </div>
+                    <br/>
                     <input type="submit" value="Login" />
                 </form>
 

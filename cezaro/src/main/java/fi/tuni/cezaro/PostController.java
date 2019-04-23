@@ -30,6 +30,7 @@ public class PostController {
         postRepo.save(new Post(LocalDateTime.of(2001, 1 , 1, 12, 55,10 ,10 ), "Saku","JAVASCRIPT ON BEBAST", "mita pyllyt tekee pusikossa"));
         postRepo.save(new Post(LocalDateTime.of(2002, 1 , 1, 12, 55, 10,10), "Mikko","JAVASCRIPT ON THE BEST", "Vakoilee"));
         postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 55, 10, 10), "Matti","TAH?!", "MIS MOON?!"));
+        postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 54,11,33), "Mikko", "Julkaisu", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."));
     }
 
     @GetMapping(value = "/posts")
