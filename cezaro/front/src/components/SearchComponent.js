@@ -34,18 +34,17 @@ class SearchComponent extends Component {
     render() {
         return (
             <div className="SearchComponentDiv">
-                <h1> Search Component </h1>
+                <h1> Search </h1>
 
                 <form onSubmit={this.handleSubmit}>
 
-                    <label>Search</label>
                     <input
                         type="text" value={this.state.searchValue}
                         name="name" onChange={this.handleChange}
                         required
                     />
 
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="search" />
                 </form>
 
                 {this.state.posts.map(post =>

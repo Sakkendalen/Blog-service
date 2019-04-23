@@ -52,7 +52,6 @@ class ComposeComponent extends Component {
     render() {
         return (
             <div className="ComposeComponentDiv">
-                <br/>
                 <h1> Write your essay... </h1>
                 <form onSubmit={this.handleSubmit} >
 
