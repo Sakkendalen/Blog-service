@@ -1,14 +1,7 @@
 .ModifyComponentDiv {
     background-color: #b3d7ff;
-    padding-top: 20vh;
+    padding-top: 22vh;
     width: 70%;
     height: 100%;
     margin: auto;
-}
-@media all and (max-width: 640px) {
-    .ModifyComponentDiv {
-        padding-top: 32vh;
-        width: 70%;
-        margin: auto;
-    }
 }

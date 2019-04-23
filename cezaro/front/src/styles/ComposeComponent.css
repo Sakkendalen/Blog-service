@@ -1,5 +1,5 @@
 .ComposeComponentDiv {
-    padding-top: 20vh;
+    padding-top: 22vh;
     width: 70%;
     height: 100%;
     margin: auto;
@@ -32,11 +32,5 @@ input[name=composeSubmitButton] {
 @media only screen and (max-aspect-ratio: 1/1) {
     .ComposeComponentDiv{
         width: 100%;
-    }
-}
-@media all and (max-width: 640px) {
-    .ComposeComponentDiv {
-        padding-top: 32vh;
-        margin: auto;
     }
 }

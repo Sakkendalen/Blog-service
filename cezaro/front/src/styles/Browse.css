@@ -1,18 +1,11 @@
 .Browsediv {
-    padding-top: 20vh;
-    width: 70%;
+    padding-top: 22vh;
+    width: 60%;
     margin: auto;
 }
 
 @media only screen and (max-aspect-ratio: 1/1) {
     .Browsediv {
         width: 100%;
-    }
-}
-
-@media all and (max-width: 640px) {
-    .Browsediv {
-        padding-top: 20vh;
-        margin: auto;
     }
 }
