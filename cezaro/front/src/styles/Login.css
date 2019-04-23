@@ -1,5 +1,13 @@
 .logdinDiv {
-    padding-top: 20vh;
+    padding-top: 30vh;
     width: 70%;
     margin: auto;
+}
+
+@media all and (max-width: 640px) {
+    .logdinDiv {
+        padding-top: 32vh;
+        width: 70%;
+        margin: auto;
+    }
 }

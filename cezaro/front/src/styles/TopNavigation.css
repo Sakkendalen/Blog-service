@@ -36,3 +36,23 @@ ul.TopNavUL li {
 .topButt:hover{
     background-color: dimgray;
 }
+
+@media all and (max-width: 640px) {
+    .topButt {
+        position: relative;
+        font: 700 0.5rem 'Charm', cursive;
+        padding: 5px 17px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .TopNavDiv{
+        width: 100%;
+        position: fixed;
+        text-align: center;
+        background-color: lightgray;
+        opacity: 0.8;
+        padding: 1%;
+        z-index: 100;
+        min-height: 15vh;
+    }
+}

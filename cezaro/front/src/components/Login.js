@@ -59,7 +59,6 @@ class Login extends Component{
         return(
             <div className="logdinDiv">
 
-                <br/>
                 <h1>Login</h1>
 
                 <form onSubmit={this.handleSubmit}>

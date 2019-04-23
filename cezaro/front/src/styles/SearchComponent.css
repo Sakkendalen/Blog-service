@@ -1,6 +1,14 @@
 .SearchComponentDiv {
     background-color: #e83e8c;
-    padding-top: 15vh;
+    padding-top: 30vh;
     width: 70%;
     margin: auto;
+}
+
+@media all and (max-width: 640px) {
+    .SearchComponentDiv {
+        padding-top: 32vh;
+        width: 70%;
+        margin: auto;
+    }
 }
