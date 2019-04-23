@@ -37,6 +37,16 @@
     margin-bottom: 1%;
 }
 
+.deleteCommentButton {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    margin-bottom: 1%;
+}
+
 .ControlButtons {
     margin: 3%;
     font-size: large;

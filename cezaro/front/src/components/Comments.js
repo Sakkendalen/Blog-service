@@ -40,7 +40,6 @@ class Comments extends Component {
     async handleSubmit(event) {
 
         event.preventDefault();
-        alert("tallennetaan id:lle : " +this.state.postID);
         this.setState({commentFieldText: "", name: ""});
         //fetch
         await fetch('comment/add', {
@@ -133,7 +132,7 @@ class Comments extends Component {
                             <div>Total likes : {comment.likes}</div>
                         <button className="likeButton" onClick={() => this.likeButton(comment.id) }>Like this comment</button>
                         {this.props.userType
-                            ? <button onClick={() => this.deletePost(comment.id)}>Delete Comment</button>
+                            ? <button className="deleteCommentButton" onClick={() => this.deletePost(comment.id)}>Delete Comment</button>
                                 : ""
                         }
                         <br/>

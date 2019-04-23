@@ -10,6 +10,7 @@ class Login extends Component{
         this.state = {
             usernameFieldText: "",
             passwordFieldText: "",
+            loggedIn: false
         };
 
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -45,7 +46,8 @@ class Login extends Component{
             }else{
                 let user = true;
                 this.props.setUser(user);
-                this.props.setMainPage();
+                //this.props.setMainPage();
+                this.setState({loggedIn: true});
             }
         }catch (e) {
 
@@ -57,42 +59,52 @@ class Login extends Component{
     }
 
     render() {
-        return(
+
+        if(!this.state.loggedIn) {
+            return (
+                <div className="logdinDiv">
+
+                    <h1>Login</h1>
+
+                    <form onSubmit={this.handleSubmit}>
+                        <div>
+                            <br/>
+                            <label>Username</label>
+                            <br/>
+                            <input
+                                type="text"
+                                name="username"
+                                value={this.state.usernameFieldText}
+                                onChange={this.handleUsernameChange}
+                                required
+                            />
+
+                            <br/>
+                            <br/>
+                            <label>Password</label>
+                            <br/>
+                            <input
+                                type="password"
+                                name="password"
+                                value={this.state.passwordFieldText}
+                                onChange={this.handlePasswordChange}
+                                required
+                            />
+                        </div>
+                        <br/>
+                        <input type="submit" value="Login"/>
+                    </form>
+
+                </div>
+            );
+        }
+        else {
+            return (
             <div className="logdinDiv">
-
-                <h1>Login</h1>
-
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <br/>
-                        <label>Username</label>
-                        <br/>
-                        <input
-                            type="text"
-                            name="username"
-                            value={this.state.usernameFieldText}
-                            onChange={this.handleUsernameChange}
-                            required
-                        />
-
-                        <br/>
-                        <br/>
-                        <label>Password</label>
-                        <br/>
-                        <input
-                            type ="password"
-                            name="password"
-                            value={this.state.passwordFieldText}
-                            onChange={this.handlePasswordChange}
-                            required
-                        />
-                    </div>
-                    <br/>
-                    <input type="submit" value="Login" />
-                </form>
-
+                <h1>Logged in as administrator</h1>
             </div>
-        );
+            );
+        }
     }
 }
 

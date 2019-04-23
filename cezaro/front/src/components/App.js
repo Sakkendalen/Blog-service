@@ -53,7 +53,6 @@ class App extends Component {
   }
 
   setUser(userType) {   //"guest" "admin"
-    alert(userType);
     this.setState({userType: userType});
     Cookies.set('user', userType, { expires: 0.02 });
   }
