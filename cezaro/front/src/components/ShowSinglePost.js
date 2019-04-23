@@ -71,7 +71,7 @@ class ShowSinglePost extends Component {
                 }
                 <button className="ControlButtons" onClick={() => this.nextPost() }>Next Post</button>
 
-                <Comments ref={this.commentsComponent} postID={this.state.id} userType={this.props.userType}/>
+                <Comments ref={this.commentsComponent} postID={this.state.id} userType={this.props.userType} formatTime={(e) => this.props.formatTime(e)}/>
             </div>
         );
     }
