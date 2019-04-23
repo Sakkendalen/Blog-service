@@ -121,7 +121,7 @@ class Comments extends Component {
                     <div className ="oneComment" key={comment.id}>
                         <Comment
                             id = {comment.id}
-                            datetime = {comment.datetime}
+                            datetime = {this.props.formatTime(comment.datetime)}
                             pseudonym = {comment.pseudonym}
                             content = {comment.content} />
                             <div>likes : {comment.likes}</div>
