@@ -98,7 +98,7 @@ class ComposeComponent extends Component {
                         <input
                             name="composeSubmitButton"
                             type="submit"
-                            value="Submit"/>
+                            value="Publish"/>
                     </form>
 
 
