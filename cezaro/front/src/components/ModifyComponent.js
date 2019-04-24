@@ -19,17 +19,25 @@ class ModifyComponent extends Component {
 
     async componentDidMount() {
 
-        const response = await fetch('api/post/' +this.props.date );
+        const response = await fetch('api/post/' +this.props.id );
         const body = await response.json();
         this.setState({ text: body.content, name: body.author, title: body.title });
     }
 
     handleSubmit(event) {
 
-        //fetch('api/add', { method: 'post', body: ""+ this.state.name, title: "" +this.state.title + this.state.text});
-        fetch('api/update/' + this.props.date, { method: 'post', body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text }) });
-
         event.preventDefault();
+
+        //fetch('api/add', { method: 'post', body: ""+ this.state.name, title: "" +this.state.title + this.state.text});
+        fetch('api/update/' + this.props.id, {
+            method: 'post',
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ author: this.state.name, title: this.state.title, content: this.state.text })
+        });
+
+        this.props.setMainPage();
     }
 
     handleTextChange(event) {
@@ -46,19 +54,53 @@ class ModifyComponent extends Component {
 
     render() {
         return(
-            <div className={"ModifyComponentDiv"}>
+            <div className="ModifyComponentDiv">
                 <form onSubmit={this.handleSubmit}>
 
-                    <label>Author</label>
-                    <input value={this.state.name} type="text" name="name" onChange={this.handleNameChange} />
+                    <h1>Modify Post</h1>
 
-                    <label>Title</label>
-                    <input value={this.state.title} type="text" name="title" onChange={this.handleTitleChange} />
+                    <br/>
 
-                    <label>
-                        <textarea value={this.state.text} onChange={this.handleTextChange} />
-                    </label>
-                    <input type="submit" value="Submit" />
+                    <label name="modifyLabel">Title</label>
+
+                    <br/>
+
+                    <input
+                        value={this.state.title}
+                        type="text"
+                        name="title"
+                        onChange={this.handleTitleChange}
+                        required
+                    />
+
+                    <br/>
+
+                        <textarea
+                            name="ModifyTextArea"
+                            className="ModifyTextArea"
+                            rows="30" cols="45"
+                            value={this.state.text}
+                            onChange={this.handleTextChange}
+                            required
+                        />
+
+                        <br/>
+
+                    <label name="modifyLabel">Author</label>
+
+                    <br/>
+
+                    <input
+                        value={this.state.name}
+                        type="text"
+                        name="name"
+                        onChange={this.handleNameChange}
+                        required
+                    />
+
+                    <br/>
+
+                    <input name="modifySubmitButton" type="submit" value="Modify" />
                 </form>
             </div>
         );

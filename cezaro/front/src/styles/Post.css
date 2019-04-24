@@ -1,6 +1,8 @@
 div.post {
-    background-color: #6c757d;
+    background-color: #e2e2e2;
     border-style: solid;
     border-color: black;
+    border-width: 1px;
     width: 100%;
+    white-space: pre-wrap;
 }

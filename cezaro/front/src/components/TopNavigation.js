@@ -21,28 +21,31 @@ class TopNavigation extends Component {
 
   setBarState(a) {
     this.setState({ show: a })
-    console.log("this ");
   }
 
   render() {
-    console.log(this.state.show)
     let a = <SearchComponent/>;
     if (this.state.show === "SearchComponent") {
-      console.log("eka");
       a = <SearchComponent/>;
     } else {
-      console.log("toka");
       a = <ComposeComponent/>;
     }
 
     return (
     <div className="TopNavDiv">
+      <h1>Cezaro Blog</h1>
       <ul className="TopNavUL">
-        <li> <button type="submit" onClick={ () => this.props.onClick( "Browse" ) }>Browse</button> </li>
-        <li> <button type="submit" onClick={ () => this.props.onClick( "Search" ) }>Search</button> </li>
-        <li> <button type="submit" onClick={ () => this.props.onClick( "Publish" ) }>Publish</button> </li>
-        <li>Delete</li>
-        <li>Modify</li>
+        <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Browse" ) }>Browse</button> </li>
+        <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Search" ) }>Search</button> </li>
+        { this.props.userType
+            ? <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Publish" ) }>Publish</button> </li>
+            : ''
+        }
+        { this.props.userType
+            ? <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Logout" ) }>Logout</button></li>
+            : <li> <button className="topButt" type="submit" onClick={ () => this.props.onClick( "Login" ) }>Login</button></li>
+        }
+
       </ul>
     </div>
     )

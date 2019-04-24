@@ -8,7 +8,7 @@ class Browse extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isLoading: false,
+            isLoading: true,
             posts: []
         };
     }
@@ -20,17 +20,30 @@ class Browse extends Component {
     }
 
     render(){
-        return(
-            <div className="Browsediv">
-                <h2>Post List</h2>
-                {this.state.posts.map(post =>
-                    <div key={post.date} onClick={ () => this.props.onClick( post.date ) }>
-                        <Post date = {post.date} author = {post.author} title = {post.title} />
 
-                        <br></br>
-                    </div>
-                )}
-            </div>
+        if(this.state.isLoading){
+            return (
+                <div className="Browsediv">
+                    <p>Loading...</p>
+                </div>
+            );
+        }
+
+        return(
+        <div className="Browsediv">
+            <h2>Post List</h2>
+            {this.state.posts.map(post =>
+                <div key={post.id} onClick={ () => this.props.onClick( post.id ) }>
+                    <Post
+                        id = {post.id}
+                        date = {this.props.formatTime(post.date)}
+                        author = {post.author}
+                        title = {post.title}
+                    />
+                    <br></br>
+                </div>
+            )}
+        </div>
         );
     }
 }

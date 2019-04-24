@@ -1,15 +1,6 @@
 package fi.tuni.cezaro;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,9 +8,12 @@ import java.time.LocalDateTime;
 public class Post {
 
     @Id
+    @GeneratedValue
+    private long id;
     private LocalDateTime date;
     private String author;
     private String title;
+    @Column(columnDefinition="TEXT")
     private String content;
 
     public Post() {
@@ -31,6 +25,14 @@ public class Post {
         this.author = author;
         this.title = title;
         this.content = content;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public LocalDateTime getDate() {
@@ -67,8 +69,9 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Blog{" +
-                "date=" + date +
+        return "Post{" +
+                "id=" + id +
+                ", date=" + date +
                 ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +

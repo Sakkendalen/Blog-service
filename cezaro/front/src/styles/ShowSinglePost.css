@@ -1,6 +1,74 @@
 .ShowSingePostdiv {
-    background-color: #80bdff;
-    padding-top: 5%;
-    width: 70%;
+    padding-top: 22vh;
+    width: 60%;
     margin: auto;
+}
+
+
+.oneComment {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.contentP{
+    text-align: left;
+    margin: 3%;
+    font: 500 1.0rem "sans-serif";
+}
+.authorP, .titleP{
+    font-size: larger;
+}
+
+.date{
+    margin-top: 1%;
+}
+
+.comAuth{
+    font-size: large;
+}
+
+.submitCommentButton {
+    margin-top: 1%;
+}
+
+.likeButton {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    margin-bottom: 1%;
+}
+
+.deleteCommentButton {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    margin-bottom: 1%;
+}
+
+.ControlButtons {
+    margin: 3%;
+    font-size: large;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .ShowSingePostdiv{
+        width: 100%;
+        margin: auto;
+    }
 }

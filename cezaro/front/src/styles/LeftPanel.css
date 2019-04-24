@@ -10,12 +10,6 @@ div.LeftPanelDiv {
     z-index: 50;
 }
 
-@media all and (max-width: 640px) {
-    div.LeftPanelDiv {
-        display: none;
-    }
-}
-
 ul.LeftPanelUL li {
     list-style-type: none;
     background-color: #005cbf;

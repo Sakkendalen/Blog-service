@@ -1,7 +1,37 @@
 .ComposeComponentDiv {
-    background-color: #b3d7ff;
-    padding-top: 5%;
+    padding-top: 22vh;
+    padding-bottom: 5vh;
     width: 70%;
     height: 100%;
     margin: auto;
+}
+
+.ComposeTextArea {
+    height: 100%;
+    margin-left: 1%;
+}
+
+textarea[name=composeTextArea] {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 70%;
+    resize: none;
+}
+
+label[name=composeLabel] {
+    font-size: large;
+}
+
+input[name=composeInput] {
+}
+
+input[name=composeSubmitButton] {
+    margin-top: 2%;
+    font-size: large;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .ComposeComponentDiv{
+        width: 100%;
+    }
 }

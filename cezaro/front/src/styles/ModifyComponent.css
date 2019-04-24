@@ -1,7 +1,37 @@
 .ModifyComponentDiv {
-    background-color: #b3d7ff;
-    padding-top: 5%;
+    padding-top: 22vh;
+    padding-bottom: 5vh;
     width: 70%;
     height: 100%;
     margin: auto;
+}
+
+.ModifyTextArea {
+    height: 100%;
+    margin-left: 1%;
+}
+
+textarea[name=ModifyTextArea] {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 70%;
+    resize: none;
+}
+
+label[name=modifyLabel] {
+    font-size: large;
+}
+
+input[name=composeInput] {
+}
+
+input[name=modifySubmitButton] {
+    margin-top: 2%;
+    font-size: large;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .ModifyComponentDiv{
+        width: 100%;
+    }
 }

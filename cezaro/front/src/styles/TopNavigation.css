@@ -1,17 +1,58 @@
 .TopNavDiv {
     width: 100%;
     position: fixed;
-    top: 0px;
     text-align: center;
-    background-color: #c69500;
+    background-color: lightgray;
+    opacity: 0.8;
     padding: 1%;
     z-index: 100;
+    min-height: 15vh;
+}
+
+.h1{
+    color: white;
 }
 
 ul.TopNavUL li {
     display: inline;
     text-align: center;
-    background-color: #1c7430;
     padding-left: 3%;
+    padding-top: 10px;
     padding-right:  3%;
+}
+.topButt{
+    background-color: lightgray;
+    color: black;
+    border: none;
+    position: relative;
+    font: 700 1rem 'Charm', cursive;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    padding: 10px 35px;
+    text-align: center;
+    cursor: pointer;
+}
+.topButt:hover{
+    background-color: dimgray;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .topButt {
+        position: relative;
+        padding: 0px 0px;
+        text-align: center;
+        cursor: pointer;
+        font-size: x-small;
+    }
+    .TopNavDiv{
+        width: 100%;
+        position: fixed;
+        text-align: center;
+        background-color: lightgray;
+        opacity: 0.8;
+        padding: 1%;
+        z-index: 100;
+        min-height: 15vh;
+    }
 }

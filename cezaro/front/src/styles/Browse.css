@@ -1,6 +1,11 @@
 .Browsediv {
-    background-color: #005cbf;
-    padding-top: 5%;
-    width: 70%;
+    padding-top: 22vh;
+    width: 60%;
     margin: auto;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .Browsediv {
+        width: 100%;
+    }
 }

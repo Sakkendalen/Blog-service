@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Browse from "./Browse";
 import Post from './Post';
 
 require('../styles/SearchComponent.css');
@@ -9,7 +8,7 @@ class SearchComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchValue: "Search",
+            searchValue: "",
             isLoading: false,
             posts: []
         };
@@ -34,19 +33,23 @@ class SearchComponent extends Component {
     render() {
         return (
             <div className="SearchComponentDiv">
-                <h1> Search Component </h1>
+                <h1> Search </h1>
 
                 <form onSubmit={this.handleSubmit}>
 
-                    <label>Search</label>
-                    <input type="text" value={this.state.searchValue} name="name" onChange={this.handleChange} />
+                    <input
+                        type="text" value={this.state.searchValue}
+                        name="name" onChange={this.handleChange}
+                        required
+                    />
 
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="search" />
                 </form>
+                <br></br>
 
                 {this.state.posts.map(post =>
-                    <div key={post.date} onClick={ () => this.props.onClick( post.date ) }>
-                        <Post date = {post.date} author = {post.author} title = {post.title}/>
+                    <div key={post.id} onClick={ () => this.props.onClick( post.id ) }>
+                        <Post id = {post.id} date = {this.props.formatTime(post.date)} author = {post.author} title = {post.title}/>
                         <br></br>
                     </div>
                 )}
