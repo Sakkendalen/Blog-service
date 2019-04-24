@@ -19,6 +19,4 @@ public interface PostRepository extends CrudRepository<Post, Long> {
     List<Post> findByContentContainingIgnoreCase(String variable);
     List<Post> findAllByOrderByDateDesc();
     List<Post> findAllByOrderByDateAsc();
-    List<Post> findAllByAuthorAndTitleAndContentContainingIgnoreCase(String variable);
-
 }

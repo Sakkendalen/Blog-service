@@ -48,15 +48,29 @@ public class PostController {
     public Iterable<Post> getPost(@PathVariable String variable){
 
         List<Post> returnValue = new ArrayList<>();
+        List <Post> CheckList =new ArrayList<>();
 
         returnValue.addAll(postRepo.findByAuthorContainingIgnoreCase(variable));
-        returnValue.addAll(postRepo.findByTitleContainingIgnoreCase(variable));
-        returnValue.addAll(postRepo.findByContentContainingIgnoreCase(variable));
+        CheckList.addAll(postRepo.findByTitleContainingIgnoreCase(variable));
+
+        for(Post check : CheckList){
+            if(!returnValue.contains(check)){
+                returnValue.add(check);
+            }
+        }
+
+        CheckList =new ArrayList<>();
+        CheckList.addAll(postRepo.findByContentContainingIgnoreCase(variable));
+
+        for(Post check : CheckList){
+            if(!returnValue.contains(check)){
+                returnValue.add(check);
+            }
+        }
 
         System.out.println(returnValue);
 
         return returnValue;
-
     }
 
     @RequestMapping(value = "/delete/{id}")
