@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.validation.ConstraintViolationException;
 
 @RestController
 public class UserController {
@@ -39,5 +40,14 @@ public class UserController {
             throw new UserNotFoundException();
         }
 
+    }
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    public void addPost(@RequestBody User user) {
+        try {
+            userRepo.save(new User(user.getUserName(), user.getPassword()));
+            throw new CredentialAcceptedExcepion();
+        }catch (ConstraintViolationException e){
+            throw new InvalidCredentialsException();
+        }
     }
 }
