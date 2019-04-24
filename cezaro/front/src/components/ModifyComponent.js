@@ -54,19 +54,17 @@ class ModifyComponent extends Component {
 
     render() {
         return(
-            <div className={"ModifyComponentDiv"}>
+            <div className="ModifyComponentDiv">
                 <form onSubmit={this.handleSubmit}>
 
-                    <label>Author</label>
-                    <input
-                        value={this.state.name}
-                        type="text"
-                        name="name"
-                        onChange={this.handleNameChange}
-                        required
-                    />
+                    <h1>Modify Post</h1>
 
-                    <label>Title</label>
+                    <br/>
+
+                    <label name="modifyLabel">Title</label>
+
+                    <br/>
+
                     <input
                         value={this.state.title}
                         type="text"
@@ -75,14 +73,34 @@ class ModifyComponent extends Component {
                         required
                     />
 
-                    <label>
+                    <br/>
+
                         <textarea
+                            name="ModifyTextArea"
+                            className="ModifyTextArea"
+                            rows="30" cols="45"
                             value={this.state.text}
                             onChange={this.handleTextChange}
                             required
                         />
-                    </label>
-                    <input type="submit" value="Submit" />
+
+                        <br/>
+
+                    <label name="modifyLabel">Author</label>
+
+                    <br/>
+
+                    <input
+                        value={this.state.name}
+                        type="text"
+                        name="name"
+                        onChange={this.handleNameChange}
+                        required
+                    />
+
+                    <br/>
+
+                    <input name="modifySubmitButton" type="submit" value="Modify" />
                 </form>
             </div>
         );
