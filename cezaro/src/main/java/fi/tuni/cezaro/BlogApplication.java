@@ -3,9 +3,24 @@ package fi.tuni.cezaro;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Main class for starting SpringBootApplication.
+ *
+ * @author      Saku Tynjala saku.tynjala@tuni.fi
+ * @author 		Mikko Mustasaari mikko.mustasaari@tuni.fi
+ * @version     0.3
+ * @since       0.1
+ */
 @SpringBootApplication
 public class BlogApplication {
 
+	/**
+	 * Main Method for run Application.
+	 *
+	 * Also Prints console curl command which can be used in command line.
+	 *
+	 * @param args String args needed at static main method.
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(BlogApplication.class, args);
 		System.out.println("PostController CURL:");
