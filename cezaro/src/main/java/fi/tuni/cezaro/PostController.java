@@ -6,6 +6,17 @@ import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * RestController to handle Post entity saving, delete and updating to database.
+ * Handles frontend fetch request and returns list of Posts by given search condition.
+ *
+ * Uses PosttRepository class for handling Entity Post table.
+ *
+ * @author      Saku Tynjala saku.tynjala@tuni.fi
+ * @author 		Mikko Mustasaari mikko.mustasaari@tuni.fi
+ * @version     0.3
+ * @since       0.1
+ */
 @RestController
 @RequestMapping("/api")
 public class PostController {
@@ -13,15 +24,22 @@ public class PostController {
     @Autowired
     PostRepository postRepo;
 
-    //Testing database
+    /**
+     * PostConstruct method for populating Posts to database.
+     */
     @PostConstruct
     public void loadData() {
-        postRepo.save(new Post(LocalDateTime.of(2001, 1 , 1, 12, 55,10 ,10 ), "James","Four Hong Kong 'Occupy' leaders jailed for 2014 democracy protests", "HONG KONG (Reuters) - A Hong Kong court jailed four leaders of 2014 pro-democracy protests on Wednesday amid heightened concerns over the decline of freedoms in the China-ruled city nearly five years after activists took to the streets in mass protests \n The sentencing of the nine activists followed a near month-long trial that was closely watched as China’s Communist Party leaders have put Hong Kong’s autonomy under increasing strain, stoking concern among foreign governments, rights groups and business people.\n" +"\n" +"Law professor Benny Tai, 54, and retired sociologist Chan Kin-man, 60, were both jailed for 16 months for conspiracy to commit public nuisance tied to the protests that paralyzed parts of the Asian financial center for 79 days in late 2014 and became known as the Umbrella Movement.\n" +"\n" +"Their sentence had been reduced by two months given their clean criminal record and positive character, Justice Johnny Chan said. "));
-        postRepo.save(new Post(LocalDateTime.of(2002, 1 , 1, 12, 55, 10,10), "Caroline","Wirecard lands $1 billion investment from Japan's Softbank", "BERLIN (Reuters) - Japan’s Softbank Group Corp will buy a 5.6 percent stake in Wirecard for around 900 million euros ($1 billion), the German company said on Wednesday, joining forces in the digital payments sector.\n Shares in Wirecard jumped 10 percent to the top of Germany’s blue-chip index as analysts welcomed the investment as a vote of confidence in the business that will allow the Munich-based firm to enlarge its operations in Asia.\n" +"\n" +"Under the agreement, Wirecard will issue bonds exclusively to an affiliate of Softbank that will convert into 6.92 million Wirecard shares after five years, currently equivalent to around 5.6 percent of the company.\n" +"\n" +"The conversion price of 130 euros per share represents a 5 percent premium to Wirecard’s closing share price on Tuesday. Shareholders will vote on the bond issuance at its annual meeting on June 18.\n" +"\n" +"Wirecard, founded in 1999, ousted lender Commerzbank from Germany’s blue-chip DAX index last year as it benefited from an accelerating global trend towards digital payments driven by e-commerce. "));
-        postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 55, 10, 10), "Steve","Trump orders administration officials not to attend White House correspondents dinner", "WASHINGTON (Reuters) - President Donald Trump, who bemoaned his treatment by the news media in a flurry of tweets on Tuesday, has barred members of his staff and administration from attending the White House Correspondents’ Association dinner on Saturday, officials said." +"Trump had already said he would not attend the annual dinner, instead scheduling a political rally in Wisconsin, but he had not decided whether anyone from his staff could attend.\n" +"\n" +"The decision that no one from his team could participate was announced to White House staff and other representatives from the administration by White House Cabinet Secretary Bill McGinley at their morning meeting, officials said.\n" +"\n" +"It set off a scramble as many staffers had accepted invitations thinking Trump would allow them to go.\n" +"\n" +"“The president and members of his administration will not attend the White House Correspondents’ Dinner this year. Instead, Saturday evening, President Trump will travel to Green Bay, Wisconsin, where he will hold a campaign rally,” said a White House official. "));
-        postRepo.save(new Post(LocalDateTime.of(2003, 1 , 1, 12, 54,11,33), "Pihla", "Kaakon Viestinnän maakuntalehdet palaavat STT:n uutispalvelun asiakkaiksi", "Kaakon Viestinnän maakuntalehdet palaavat heinäkuun alussa STT:n uutispalvelun asiakkaiksi neljän vuoden tauon jälkeen. Tuolloin Etelä-Saimaa, Itä-Savo, Kouvolan Sanomat, Kymen Sanomat ja Länsi-Savo alkavat julkaista STT:n uutispalvelun juttuja kotimaasta ja ulkomailta.\n" +"\n" +      "Tällä hetkellä Kaakon Viestintä julkaisee Helsingin Sanomien toimittamia kotimaan ja ulkomaiden uutisia. Maakuntalehdet aloittivat sisältöyhteistyön Helsingin Sanomien kanssa vuoden 2015 alussa ja luopuivat samalla STT:n palveluiden asiakkuudesta.\n" +"\n" +"Kaakon Viestinnän sisältöjohtaja Pekka Lakka perustelee paluuta uutistoimiston asiakkaaksi STT:ssä tapahtuneilla uudistuksilla."));
+        postRepo.save(new Post(LocalDateTime.of(2019, 1 , 1, 11, 11,26 ,10 ), "Paul","Britain to allow Huawei restricted access to 5G network", "LONDON (Reuters) - Britain will allow Huawei Technologies a restricted role in building parts of its 5G network, seeking a middle way in a bitter dispute between the United States and China over the next generation of communications technology. Huawei, the world’s biggest producer of telecoms equipment, is under intense scrutiny after the United States told allies not to use its technology because of fears it could be a vehicle for Chinese spying. Huawei has categorically denied this.\n \nThe Daily Telegraph newspaper reported Britain’s National Security Council, chaired by Prime Minister Theresa May, had agreed to allow Huawei access to non-core parts of 5G mobile infrastructure like antennas, despite concerns from ministers.\n" + "\n" +"A security source told Reuters that Britain would block Huawei from all core parts of the 5G network and access to non-core parts would be restricted. A second source confirmed that. Both spoke on condition of anonymity.\n" +"\n" +"European nations are treading a fine line in the dispute between the world’s two most powerful countries, under pressure from the United States to take a hard line on Huawei but also anxious not to sour trading and diplomatic relations with China.\n" +"\n" +"Britain’s compromise could provide a template for others to follow that the world’s leading intelligence-sharing network - the anglophone Five Eyes alliance - could live with. Huawei also welcomed London’s move. "));
+        postRepo.save(new Post(LocalDateTime.of(2018, 4 , 12, 7, 18, 43,10), "Ryan","China to announce rules soon to regulate commercial rocket industry", "BEIJING (Reuters) - China’s national space agency said on Tuesday it will soon announce rules to regulate commercial rocket manufacturing, test flights and launches, state media reported, as the number of private startups in the nascent sector surged in the past year.\n" +"\n" +"A space law has been included in the legislative plan of parliament, and could be introduced in the next three to five years, China Space News reported, citing a presentation at an industry conference in Hunan province.\n" +"\n" +"The number of private firms engaged in the commercialization of China’s space industry have increased to almost 100 from 30 last year, including manufacturers of rockets and satellites, according to China Space News. "));
+        postRepo.save(new Post(LocalDateTime.of(2017, 7 , 16, 14, 53, 18, 10), "Will","Out of a drawer and into your nightmares comes a vicious ancient beast", "WASHINGTON (Reuters) - When Ohio University integrative biologist Nancy Stevens peered into a drawer in the wooden cabinets on the top floor of a Nairobi museum in 2010, she saw a chunk of rock containing massive teeth and knew she had come across something important. \n The overlooked fossils stored at the National Museums of Kenya belonged to one of the largest meat-eating mammals ever to walk the Earth, a beast called Simbakubwa kutokaafrika that stalked Africa 22 million years ago, according to research by Stevens and co-author Matthew Borths published on Thursday.\n" +"\n" +"Bigger than any carnivorous land mammal alive today - even a polar bear - Simbakubwa’s skull was the size of a rhino’s, its eight-inch (20-cm) canine teeth as large as bananas. It weighed about a ton and was 8 feet long (2-1/2 meters) snout to rump.\n" +"\n" +"According to the research published in the Journal of Vertebrate Paleontology, the fossils were excavated around 1980 in western Kenya and never closely examined. "));
+        postRepo.save(new Post(LocalDateTime.of(2016, 9 , 19, 1, 33,11,33), "Steve", "Yale study revives cellular activity in pig brains hours after death", "(Reuters) - Yale University scientists have succeeded in restoring basic cellular activity in pigs’ brains hours after their deaths in a finding that may one day lead to advances in treating human stroke and brain injuries, researchers reported on Wednesday. \n The scientists emphasized that their work did not even come close to reawakening consciousness in the disembodied pig brains. In fact the experiment was specifically designed to avoid such an outcome, however improbable.\n" +"\n" +"Still, the study raises a host of bioethical issues, including questions about the very definition of brain death and potential consequences for protocols related to organ donation.\n" +"\n" +"The research grew out of efforts to enhance the study of brain development, disorders and evolution. The main practical application is the prospect of allowing scientists to analyze whole brain specimens of large mammals in three dimensions, rather than through studies confined to small tissue samples, Yale said. "));
     }
 
+    /**
+     * Returns all Posts from database sorted by Date Descending.
+     *
+     * @return Iterable Post of all Posts in database.
+     */
     @GetMapping(value = "/posts")
     public Iterable<Post> findAll() {
 
@@ -29,8 +47,12 @@ public class PostController {
 
     }
 
-    // used to get post by id
-    // example fetch with url example: curl -X GET http://localhost:8080/api/post/1
+    /**
+     * Returns particular Post by given ID long in RequestMapping.
+     *
+     * @param id long of Post ID at RequestMapping.
+     * @return Optional Post  of found post by given argument.
+     */
     @RequestMapping(value = "/post/{id}", method= RequestMethod.GET)
     public Optional<Post> getPost(@PathVariable long id){
 
@@ -42,8 +64,18 @@ public class PostController {
         }
     }
 
-    // used to get post by string value
-    // example fetch with url http://localhost:8080/api/search/sa
+    /**
+     * Returns all posts as Iterable Post  that contains given String in RequestMapping.
+     *
+     * Fetches all posts by author that contains given string variable, after that
+     * fetches all posts by title that contains given string and compares these list objects and adds
+     * non duplicants objects to the first list and does same thing by searching all posts by Content that
+     * contains given string variable and returns List of all Post objects that contained given String variable.
+     *
+     * @param variable String of search condition at RequestMapping.
+     *
+     * @return Iterable Post of found posts by given argument.
+     */
     @RequestMapping(value = "/search/{variable}", method= RequestMethod.GET)
     public Iterable<Post> getPost(@PathVariable String variable){
 
@@ -68,36 +100,43 @@ public class PostController {
             }
         }
 
-        System.out.println(returnValue);
-
         return returnValue;
     }
 
+    /**
+     * Deletes post from database by given Post ID long.
+     * Checks if repository have Post by given
+     * long ID and deletes it from database.
+     *
+     * @param id long of Post ID at RequestMapping.
+     */
     @RequestMapping(value = "/delete/{id}")
     public void delPost(@PathVariable long id) {
 
         if(postRepo.findById(id).isPresent()) {
-
-            System.out.println("deleting: " + postRepo.findById(id));
-
             postRepo.deleteById(id);
-        }
-        else{
-
-            System.out.println("Not found!");
-
         }
     }
 
+    /**
+     * Method for saving comment to database.
+     * Takes Json format of Post as RequestBody and creates new Post by it attributes and saves it to database.
+     *
+     * @param post Json format of Post as RequestBody.
+     */
     @RequestMapping(value = "/add")
     public void addPost(@RequestBody Post post) {
-
-
-        System.out.println("Author : " +post.getAuthor() +" Title : " +post.getTitle() +" Content : " + post.getContent());
-
         postRepo.save(new Post(LocalDateTime.now().withNano(0), post.getAuthor(), post.getTitle(), post.getContent()));
     }
 
+    /**
+     * Update method for updating existing Post at database.
+     * Takes long ID of wanted post as to be updated at RequestMapping and
+     * Json format of Post as RequestBody and updates found Post by given arguments in RequestBody.
+     *
+     * @param post Json format of Post as RequestBody.
+     * @param id long of Post ID at RequestMapping.
+     */
     @RequestMapping(value = "/update/{id}")
     public void updatePost(@PathVariable long id,
                                 @RequestBody Post post) {
@@ -105,16 +144,21 @@ public class PostController {
         if(postRepo.findById(id).isPresent()) {
             Post alteredPost = postRepo.findById(id).get();
 
-            System.out.println("Jutut : " +post.getAuthor() +post.getTitle() +post.getContent());
-
             alteredPost.setAuthor(post.getAuthor());
             alteredPost.setTitle(post.getTitle());
             alteredPost.setContent(post.getContent());
             postRepo.save(alteredPost);
         }
-
     }
 
+    /**
+     * Returns previous post of given long ID at RequestMapping. If blog only contains 1 Post, this returns
+     * Post that ID was given in RequestMapping. Sorts found Posts by Date Descending.
+     *
+     * @param id long of Post ID at RequestMapping.
+     *
+     * @return previous or current Post.
+     */
     @RequestMapping(value = "/prevpost/{id}")
     public Post prevPost(@PathVariable long id) {
 
@@ -122,8 +166,6 @@ public class PostController {
             Post fetch = postRepo.findById(id).get();
             List<Post> prev = postRepo.findAllByDateBeforeOrderByDateDesc(fetch.getDate());
             if(!prev.isEmpty()) {
-                System.out.println(fetch);
-                System.out.println(prev);
                 return prev.get(0);
             } else {
                 List<Post> first = postRepo.findAllByOrderByDateDesc();
@@ -133,14 +175,20 @@ public class PostController {
         return null;
     }
 
+    /**
+     * Returns next post of given long ID at RequestMapping. If blog only contains 1 Post, this returns
+     * Post that ID was given in RequestMapping. Sorts found Posts by Date Ascending.
+     *
+     * @param id long of Post ID at RequestMapping.
+     *
+     * @return next or current Post.
+     */
     @RequestMapping(value = "/nextpost/{id}")
     public Post nextPost(@PathVariable long id){
         if(postRepo.findById(id).isPresent()) {
             Post fetch = postRepo.findById(id).get();
             List<Post> next = postRepo.findAllByDateAfterOrderByDateAsc(fetch.getDate());
             if(!next.isEmpty()) {
-                System.out.println(fetch);
-                System.out.println(next);
                 return next.get(0);
             } else {
                 List<Post> first = postRepo.findAllByOrderByDateAsc();

@@ -1,12 +1,18 @@
 package fi.tuni.cezaro;
 
-import javafx.geometry.Pos;
 import org.springframework.data.repository.CrudRepository;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Post repository implementation for handling Post table that extends from CrudRepository.
+ *
+ * @author      Saku Tynjala saku.tynjala@tuni.fi
+ * @author 		Mikko Mustasaari mikko.mustasaari@tuni.fi
+ * @version     0.3
+ * @since       0.1
+ */
 public interface PostRepository extends CrudRepository<Post, Long> {
 
     Optional<Post> findByAuthorAndDateBefore(String author, LocalDateTime date);
