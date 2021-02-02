@@ -7,17 +7,17 @@ You must have nodejs, npm and apache maven installed.
 
 ### to run backend:
 
-1.navigate to ..\Blog-service\cezaro
-2. in command line: $ mvn compile
-3. navigate to ..\Blog-service\cezaro\target
-3. in command line: $ mvn java -jar cezaro-V.0.3.jar
+1.navigate to ..\Blog-service\cezaro <br />
+2. in command line: $ mvn compile <br />
+3. navigate to ..\Blog-service\cezaro\target <br />
+3. in command line: $ mvn java -jar cezaro-V.0.3.jar <br />
 
 ### to run frontend:
 
-1.navigate to ..\Blog-service\cezaro\src\front
-2. in command line: $ npm install
-3. in comman line: $ npm start (you should have backend running in order to program work correctly)
-4. open your browser go to http://localhost:3000
+1.navigate to ..\Blog-service\cezaro\src\front <br />
+2. in command line: $ npm install <br />
+3. in comman line: $ npm start (you should have backend running in order to program work correctly) <br />
+4. open your browser go to http://localhost:3000 <br />
 
 
 ### App running
