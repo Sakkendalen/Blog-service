@@ -23,9 +23,11 @@ You must have nodejs, npm and apache maven installed.
 ### App running
 When app starts it have automatically generates 4 posts in the site and in the database.
 Login as a admin to website you can you following login information. <br />
-user: Mikko password:admin1 <br />
+user: Mikko <br />
+password: admin1 <br />
 or <br />
-user: Saku  password:admin2 <br />
+user: Saku  <br />
+password: admin2 <br />
 
 
 
